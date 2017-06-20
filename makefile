@@ -17,7 +17,8 @@ MD = pandoc --data-dir=$(CURDIR) --from markdown \
 
 DOT = dot -Tsvg
 
-ASSETS = $(shell find $(ASSETS_DIR) | grep -E ".*(css|js|woff|ttf|eot)" | cut -sd / -f 2-)
+ASSETS = $(shell find $(ASSETS_DIR) -type f | grep -E ".*(css|js|woff|ttf|eot)" | cut -sd / -f 2-)
+BUILDS = $(ASSETS:%=$(BUILDS_DIR)/%)
 
 # CSS_ASSETS = $(shell find $(ASSETS_DIR) -name '*.css' | cut -sd / -f 2-)
 # CSS_BUILDS = $(CSS_ASSETS:%.css=$(BUILDS_DIR)/%.css)
@@ -31,20 +32,15 @@ HTML_OBJECTS = $(MD_SOURCES:%.md=$(OBJECTS_DIR)/%.html)
 DOT_SOURCES = $(shell find $(SOURCES_DIR) -name '*.dot' | cut -sd / -f 2-)
 DOT_OBJECTS = $(DOT_SOURCES:%.dot=$(OBJECTS_DIR)/%.svg)
 
-# all: assets sources
-all: assets
+all: assets sources
+# all: assets
 # @echo "Done"
 
-assets: $(ASSETS)
+assets: $(BUILDS)
 
-# assets: $(CSS_BUILDS) $(JS_BUILDS)
-$(ASSETS): $(BUILDS_DIR)/%: $(ASSETS_DIR)/%
+$(BUILDS): $(BUILDS_DIR)/%: $(ASSETS_DIR)/%
 	@mkdir -p $(@D)
 	cp -f $< $@
-
-# $(BUILDS_DIR)/%.js: $(ASSETS_DIR)/%.js
-# 	@mkdir -p $(@D)
-# 	cp -f $< $@
 
 sources: $(HTML_OBJECTS) $(DOT_OBJECTS)
 
@@ -81,8 +77,10 @@ clean:
 # 	- find $(OBJECTS_DIR) -type d -empty -delete
 
 debug:
-	@echo $(JS_ASSETS)
-	@echo $(JS_BUILDS)
+	@echo $(ASSETS)
+	@echo $(BUILDS)
+#	@echo $(JS_ASSETS)
+#	@echo $(JS_BUILDS)
 # @echo $(CSS_ASSETS)
 # @echo $(CSS_BUILDS)
 # @echo $(MD_SOURCES)
