@@ -20,12 +20,6 @@ DOT = dot -Tsvg
 ASSETS = $(shell find $(ASSETS_DIR) -type f | grep -E ".*(css|js|woff|ttf|eot)" | cut -sd / -f 2-)
 BUILDS = $(ASSETS:%=$(BUILDS_DIR)/%)
 
-# CSS_ASSETS = $(shell find $(ASSETS_DIR) -name '*.css' | cut -sd / -f 2-)
-# CSS_BUILDS = $(CSS_ASSETS:%.css=$(BUILDS_DIR)/%.css)
-
-# JS_ASSETS = $(shell find $(ASSETS_DIR) -name '*.js' | cut -sd / -f 2-)
-# JS_BUILDS = $(JS_ASSETS:%.js=$(BUILDS_DIR)/%.js)
-
 MD_SOURCES = $(shell find $(SOURCES_DIR) -name '*.md' | cut -sd / -f 2-)
 HTML_OBJECTS = $(MD_SOURCES:%.md=$(OBJECTS_DIR)/%.html)
 
@@ -33,8 +27,6 @@ DOT_SOURCES = $(shell find $(SOURCES_DIR) -name '*.dot' | cut -sd / -f 2-)
 DOT_OBJECTS = $(DOT_SOURCES:%.dot=$(OBJECTS_DIR)/%.svg)
 
 all: assets sources
-# all: assets
-# @echo "Done"
 
 assets: $(BUILDS)
 
@@ -65,25 +57,6 @@ serve:
 clean:
 	rm -rf $(OBJECTS_DIR)
 
-# clean: clean_builds clean_objects clean_dir
-
-# clean_builds:
-# 	- rm $(CSS_BUILDS)
-
-# clean_objects:
-# 	- rm $(HTML_OBJECTS)
-
-# clean_dir:
-# 	- find $(OBJECTS_DIR) -type d -empty -delete
-
 debug:
 	@echo $(ASSETS)
 	@echo $(BUILDS)
-#	@echo $(JS_ASSETS)
-#	@echo $(JS_BUILDS)
-# @echo $(CSS_ASSETS)
-# @echo $(CSS_BUILDS)
-# @echo $(MD_SOURCES)
-# @echo $(HTML_OBJECTS)
-# @echo $(DOT_OBJECTS)
-# @echo $(DOT_SOURCES)

@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <!-- <style type="text/css">code{white-space: pre;}</style> -->
   <link rel="stylesheet" href="assets/reveal.css">
   <link rel="stylesheet" href="assets/white.css">
-  <link rel="stylesheet" href="lib/css/zenburn.css">
+  <link rel="stylesheet" href="assets/zenburn.css">
+  <link rel="stylesheet" href="assets/highlight.css">
 </head>
 <body>
   <div class="reveal">
@@ -70,11 +70,11 @@
     </div>
   </div>
   <script src="assets/head.min.js"></script>
-  <script src="js/reveal.js"></script>
+  <script src="assets/reveal.js"></script>
   <script>
     Reveal.initialize({
       dependencies: [
-        { src: 'assets/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        { src: 'assets/highlight.min.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
       ]
     });
   </script>
