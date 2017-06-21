@@ -1,7 +1,10 @@
 h1 {
   color: #f64d27 !important;
 }
+h2, h3 {
+  color: #2a76dd !important;
+}
 
 body {
-  background-color: #EAE9E1;
+  background-color: #eae9e1;
 }

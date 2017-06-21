@@ -14,7 +14,20 @@
   <div class="reveal">
     <div class="slides">
 <section>
-<h1 id="git">GIT</h1>
+<h1 id="checkout">Checkout</h1>
+<section>
+<h1 id="checkout-1">Checkout</h1>
+Переключиться в ветку
+</section>
+<p class="fragment">
+Вытащить файл из ветки
+</p>
+<p class="fragment">
+Вытащить файл
+</p>
+</section>
+<section>
+<h1 id="git">Git</h1>
 </section>
 <section>
 <h1 id="commit">Commit</h1>
@@ -23,6 +36,17 @@
 </section>
 <section>
 <h1 id="revisions">Revisions</h1>
+<h2 id="section">~ ^</h2>
+<p class="fragment">
+<pre class="graphviz"><code>digraph revisions {
+  bgcolor=&quot;transparent&quot;
+  node [shape=&quot;circle&quot; fillcolor=&quot;#92B6E6&quot; style=filled]
+  { G, H } -&gt; D
+  { I, J } -&gt; F
+  { D, E, F } -&gt; B
+  { B, C } -&gt; A
+}</code></pre>
+</p>
 </section>
     </div>
   </div>
