@@ -44,7 +44,7 @@ SLIDES = $(shell find \
 )
 
 index.md: $(SLIDES)
-	find $(SLIDES) | xargs -I{} sh -c "echo '<section class=\"center\">'; cat {}; echo '\n</section>\n'" > $@
+	$^ | xargs -I{} sh -c "echo '<section class=\"center\">'; cat {}; echo '\n</section>\n'" > $@
 
 $(TARGET_DIR)/%.html: $(SOURCE_DIR)/%.md $(SOURCE_DIR)/makefile plugins/graphviz.py templates/documentary.html
 	@mkdir -p $(@D)
