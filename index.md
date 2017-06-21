@@ -1,5 +1,5 @@
-<section class="slide">
-# GIT
+<section>
+# R
 
 ```graphviz
 digraph revisions {
@@ -25,6 +25,6 @@ digraph revisions {
 
 </section>
 
-<section class="slide">
-
+<section>
+# GIT
 </section>

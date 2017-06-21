@@ -1,5 +1,5 @@
-$(function() {
-  console.log('asdf');
-  $.deck('.slide');
+Reveal.initialize({
+  dependencies: [
+    { src: 'assets/highlight.min.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+  ]
 });
-hljs.initHighlightingOnLoad()
