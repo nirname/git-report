@@ -39,9 +39,14 @@ sources: $(HTML_OBJECTS) $(DOT_OBJECTS)
 
 $(OBJECTS_DIR)/index.html: slide%
 
+#@find draft* | xargs -I{} sh -c "cat {}; echo '\n'" >> index.md
 slide%:
-	@find draft* slide* | xargs -I{} sh -c "cat {}; echo '\n'" > index.md
-	# @find slide* | xargs -I{} sh -c "echo '<section>'; cat {}; echo '\n</section>\n'" >> index.md
+	@find \
+		draft* \
+		git* \
+		commands* \
+		init* \
+		| xargs -I{} sh -c "echo '<section class=\"center\">'; cat {}; echo '\n</section>\n'" > index.md
 
 $(OBJECTS_DIR)/%.html: $(SOURCES_DIR)/%.md $(SOURCES_DIR)/makefile $(SOURCES_DIR)/graphviz.py templates/documentary.html
 	@mkdir -p $(@D)

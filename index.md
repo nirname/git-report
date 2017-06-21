@@ -1,9 +1,29 @@
 <section class="center">
-# Init
+# Draft
+
+<section>
+## Status
 </section>
 
 <section>
-# Init
+## Branch
+</section>
+
+<section>
+## Checkout
+</section>
+</section>
+
+<section class="center">
+# Git
+</section>
+
+<section class="center">
+# Commands
+</section>
+
+<section class="center">
+## Init
 
 <section>
 Инициализировать новый проект c **Git**
@@ -21,34 +41,5 @@ cd trygit
 git init .
 ```
 </section>
-</section>
-
-
-<section>
-# Status
-</section>
-
-<section>
-# Branch
-</section>
-
-<section>
-# Checkout
-</section>
-
-<section>
-# Mysterious signs
-
-```graphviz
-digraph revisions {
-
-  bgcolor="transparent"
-  node [shape="circle" fillcolor="#92B6E6" style=filled]
-  { G, H } -> D
-  { I, J } -> F
-  { D, E, F } -> B
-  { B, C } -> A
-}
-```
 </section>
 
