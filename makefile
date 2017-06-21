@@ -43,14 +43,14 @@ SLIDES = $(shell find \
 	init* \
 )
 
+index.md: $(SLIDES)
+	find $(SLIDES) | xargs -I{} sh -c "echo '<section class=\"center\">'; cat {}; echo '\n</section>\n'" > $@
+
 $(TARGET_DIR)/%.html: $(SOURCE_DIR)/%.md $(SOURCE_DIR)/makefile plugins/graphviz.py templates/documentary.html
 	@mkdir -p $(@D)
 	$(MD) --to html5 $< --output $@
 	@sed -i '' -e '/href="./s/\.md/\.html/g' $@
 	@sed -i '' -e '/src="./s/\.dot/\.svg/g' $@
-
-index.md: $(SLIDES)
-	find $(SLIDES) | xargs -I{} sh -c "echo '<section class=\"center\">'; cat {}; echo '\n</section>\n'" > index.md
 
 $(TARGET_DIR)/%.svg: $(SOURCE_DIR)/%.dot makefile
 	@mkdir -p $(@D)
