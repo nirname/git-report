@@ -20,7 +20,8 @@ DOT = dot -Tsvg
 ASSETS = $(shell find $(ASSETS_DIR) -type f | grep -E ".*(css|js|woff|ttf|eot)" | cut -sd / -f 2-)
 BUILDS = $(ASSETS:%=$(BUILDS_DIR)/%)
 
-MD_SOURCES = $(shell find $(SOURCES_DIR) -name 'index.md' | cut -sd / -f 2-)
+# MD_SOURCES = $(shell find $(SOURCES_DIR) -name 'index.md' | cut -sd / -f 2-)
+MD_SOURCES = $(shell find $(SOURCES_DIR) -name '*.md' | cut -sd / -f 2-)
 HTML_OBJECTS = $(MD_SOURCES:%.md=$(OBJECTS_DIR)/%.html)
 
 DOT_SOURCES = $(shell find $(SOURCES_DIR) -name '*.dot' | cut -sd / -f 2-)
