@@ -76,6 +76,7 @@
 </g>
 </svg>
 
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> show ???</code></pre></div>
 </section>
 <section>
 <p>Возможные значения</p>
@@ -90,6 +91,21 @@
 </p>
 </section>
 <section>
+<p>Выбираем <strong>SHA</strong></p>
+<pre class="shell"><code>$ git log
+commit b1713c78427b728a2d981981dccb5d6e398b66a6
+Author: Nikolay Rozhkov &lt;rozhkov@uchi.ru&gt;
+Date:   Wed Jun 21 19:20:54 2017 +0300
+
+    Fixed env
+
+commit 47194bcc4a1413360b42a15f1067605162f58d29
+Author: vbratkev &lt;bratkevich.v@gmail.com&gt;
+Date:   Tue Jun 20 15:15:26 2017 +0300
+
+    Fix deploy</code></pre>
+</section>
+<section>
 <p>Возможные значения</p>
 <p>HEAD<strong>@{0}</strong></p>
 <p class="fragment">
@@ -101,10 +117,10 @@ HEAD<strong>~</strong>
 </section>
 <section>
 <p>Выбираем перемещения <strong>HEAD</strong></p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> reflog
-<span class="kw">b1713c7</span> HEAD@<span class="dt">{0}</span>: commit: Fixed env
-<span class="kw">47194bc</span> HEAD@<span class="dt">{1}</span>: clone: from git@github.com:uchiru/ansible-south-africa.git</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">git</span> show HEAD@<span class="dt">{1}</span></code></pre></div>
+<pre class="shell"><code>$ git reflog
+b1713c7 HEAD@{0}: commit: Fixed env
+47194bc HEAD@{1}: clone: from git@github.com:uchiru/ansible-south-africa.git</code></pre>
+<pre class="shell"><code>$ git show HEAD@{1}</code></pre>
 </section>
 <section>
 <p>Выбираем родителей</p>

@@ -20,9 +20,9 @@ DOT = dot -Tsvg
 ASSETS_SOURCES = $(shell find $(ASSETS_DIR) -type f | grep -E ".*(css|js|woff|ttf|eot)" | cut -sd / -f 2-)
 ASSETS_TARGETS = $(ASSETS_SOURCES:%=$(BUILDS_DIR)/%)
 
-MD_SOURCES = $(shell find $(SOURCE_DIR) -name 'index.md' | cut -sd / -f 2-)
+# MD_SOURCES = $(shell find $(SOURCE_DIR) -name 'index.md' | cut -sd / -f 2-)
 # MD_SOURCES = $(shell find $(SOURCE_DIR) -name '*.md' | cut -sd / -f 2-)
-MD_TARGETS = $(MD_SOURCES:%.md=$(TARGET_DIR)/%.html)
+# MD_TARGETS = $(MD_SOURCES:%.md=$(TARGET_DIR)/%.html)
 
 DOT_SOURCES = $(shell find $(SOURCE_DIR) -name '*.dot' | cut -sd / -f 2-)
 DOT_TARGETS = $(DOT_SOURCES:%.dot=$(TARGET_DIR)/%.svg)
@@ -35,7 +35,7 @@ $(ASSETS_TARGETS): $(BUILDS_DIR)/%: $(ASSETS_DIR)/%
 	@mkdir -p $(@D)
 	cp -f $< $@
 
-sources: $(MD_TARGETS) $(DOT_TARGETS)
+sources: $(TARGET_DIR)/index.html $(DOT_TARGETS)
 
 SLIDES = $(shell find \
 	revisions* \
@@ -43,15 +43,14 @@ SLIDES = $(shell find \
 	init* \
 )
 
-# $(TARGET_DIR)/index.html: index.md $(SLIDES)
-index.md: $(SLIDES)
-	find $(SLIDES) | xargs -I{} sh -c "echo '<section class=\"center\">'; cat {}; echo '\n</section>\n'" > index.md
-
 $(TARGET_DIR)/%.html: $(SOURCE_DIR)/%.md $(SOURCE_DIR)/makefile plugins/graphviz.py templates/documentary.html
 	@mkdir -p $(@D)
 	$(MD) --to html5 $< --output $@
 	@sed -i '' -e '/href="./s/\.md/\.html/g' $@
 	@sed -i '' -e '/src="./s/\.dot/\.svg/g' $@
+
+index.md: $(SLIDES)
+	find $(SLIDES) | xargs -I{} sh -c "echo '<section class=\"center\">'; cat {}; echo '\n</section>\n'" > index.md
 
 $(TARGET_DIR)/%.svg: $(SOURCE_DIR)/%.dot makefile
 	@mkdir -p $(@D)
