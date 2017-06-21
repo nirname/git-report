@@ -22,7 +22,7 @@ ASSETS_TARGETS = $(ASSETS_SOURCES:%=$(BUILDS_DIR)/%)
 
 # MD_SOURCES = $(shell find $(SOURCE_DIR) -name 'index.md' | cut -sd / -f 2-)
 # MD_SOURCES = $(shell find $(SOURCE_DIR) -name '*.md' | cut -sd / -f 2-)
-# MD_TARGETS = $(MD_SOURCES:%.md=$(TARGET_DIR)/%.html)
+MD_TARGETS = $(TARGET_DIR)/index.html
 
 DOT_SOURCES = $(shell find $(SOURCE_DIR) -name '*.dot' | cut -sd / -f 2-)
 DOT_TARGETS = $(DOT_SOURCES:%.dot=$(TARGET_DIR)/%.svg)
@@ -35,7 +35,7 @@ $(ASSETS_TARGETS): $(BUILDS_DIR)/%: $(ASSETS_DIR)/%
 	@mkdir -p $(@D)
 	cp -f $< $@
 
-sources: $(TARGET_DIR)/index.html $(DOT_TARGETS)
+sources: $(MD_TARGETS) $(DOT_TARGETS)
 
 SLIDES = $(shell find \
 	revisions* \
