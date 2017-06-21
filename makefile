@@ -20,7 +20,7 @@ DOT = dot -Tsvg
 ASSETS = $(shell find $(ASSETS_DIR) -type f | grep -E ".*(css|js|woff|ttf|eot)" | cut -sd / -f 2-)
 BUILDS = $(ASSETS:%=$(BUILDS_DIR)/%)
 
-MD_SOURCES = $(shell find $(SOURCES_DIR) -name '*.md' | cut -sd / -f 2-)
+MD_SOURCES = $(shell find $(SOURCES_DIR) -name 'index.md' | cut -sd / -f 2-)
 HTML_OBJECTS = $(MD_SOURCES:%.md=$(OBJECTS_DIR)/%.html)
 
 DOT_SOURCES = $(shell find $(SOURCES_DIR) -name '*.dot' | cut -sd / -f 2-)
@@ -35,6 +35,12 @@ $(BUILDS): $(BUILDS_DIR)/%: $(ASSETS_DIR)/%
 	cp -f $< $@
 
 sources: $(HTML_OBJECTS) $(DOT_OBJECTS)
+
+$(OBJECTS_DIR)/index.html: slide%
+
+slide%:
+	@find slide* | xargs -I{} sh -c "echo '<section>'; cat {}; echo '\n</section>\n'" > index.md
+# cat slidem*.md > index.md
 
 $(OBJECTS_DIR)/%.html: $(SOURCES_DIR)/%.md $(SOURCES_DIR)/makefile $(SOURCES_DIR)/graphviz.py templates/documentary.html
 	@mkdir -p $(@D)
