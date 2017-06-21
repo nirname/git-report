@@ -51,4 +51,3 @@ digraph revisions {
 }
 ```
 </section>
-
