@@ -1,4 +1,4 @@
-<section>
+<section class="slide">
 # GIT
 
 ```graphviz
@@ -12,7 +12,7 @@ digraph revisions {
 }
 ```
 
-```bash
+```dot
 digraph revisions {
   bgcolor="transparent"
   node [shape="circle" fillcolor="#92B6E6" style=filled]
@@ -22,5 +22,9 @@ digraph revisions {
   { B, C } -> A
 }
 ```
+
+</section>
+
+<section class="slide">
 
 </section>

@@ -5,6 +5,6 @@ h2, h3 {
   color: #2a76dd !important;
 }
 
-body {
-  background-color: #eae9e1;
+body, .deck-container {
+  background-color: #eae9e1 !important;
 }

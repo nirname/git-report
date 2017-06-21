@@ -5,14 +5,35 @@
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <script src="/assets/highlight.min.js"></script>
-  <link rel="stylesheet" href="assets/white.css">
   <link rel="stylesheet" href="assets/highlight.css">
+
+  <!-- Extension CSS files go here. Remove or add as needed. -->
+  <link rel="stylesheet" media="screen" href="assets/deck.core.css">
+  <link rel="stylesheet" media="screen" href="assets/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="assets/horizontal-slide.css">
+  <!-- <link rel="stylesheet" media="screen" href="assets/deck.menu.css"> -->
+  <!-- <link rel="stylesheet" media="screen" href="assets/deck.goto.css"> -->
+  <!-- <link rel="stylesheet" media="screen" href="assets/deck.status.css"> -->
+  <!-- <link rel="stylesheet" media="screen" href="assets/deck.scale.css"> -->
+  <link rel="stylesheet" media="screen" href="assets/web-2.0.css">
+  <link rel="stylesheet" media="screen" href="assets/white.css">
+
+  <!-- Required JS files. -->
+  <script src="assets/jquery.min.js"></script>
+  <script src="assets/modernizr.custom.js"></script>
+  <script src="assets/deck.core.js"></script>
+  <script src="assets/deck.navigation.js"></script>
+  <!-- <script src="assets/deck.menu.js"></script> -->
+  <!-- <script src="assets/deck.goto.js"></script> -->
+  <!-- <script src="assets/deck.status.js"></script> -->
+  <!-- <script src="assets/deck.scale.js"></script> -->
+
   <link rel="stylesheet" href="assets/documentary.css">
+
 </head>
 <body>
-  <div class="reveal">
-    <div class="slides">
-<section>
+  <div class="deck-container">
+<section class="slide">
 <h1 id="git">GIT</h1>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -122,19 +143,18 @@
 </g>
 </svg>
 
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">digraph</span> revisions {
-  <span class="ot">bgcolor=</span><span class="st">&quot;transparent&quot;</span>
-  <span class="kw">node</span> [shape=<span class="st">&quot;circle&quot;</span> fillcolor=<span class="st">&quot;#92B6E6&quot;</span> style=filled]
-  <span class="kw">{</span> <span class="kw">G</span>, H <span class="kw">}</span> <span class="kw">-&gt;</span> D
-  <span class="kw">{</span> <span class="kw">I</span>, J <span class="kw">}</span> <span class="kw">-&gt;</span> F
-  <span class="kw">{</span> <span class="kw">D</span>, E, F <span class="kw">}</span> <span class="kw">-&gt;</span> B
-  <span class="kw">{</span> <span class="kw">B</span>, C <span class="kw">}</span> <span class="kw">-&gt;</span> A
-}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode dot"><code class="sourceCode dot"><span class="kw">digraph</span> <span class="fu">revisions</span> <span class="ot">{</span>
+<span class="co">  </span><span class="dt">bgcolor</span><span class="ot">=</span><span class="st">&quot;transparent&quot;</span>
+<span class="co">  </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="dt">shape</span><span class="ot">=</span><span class="st">&quot;circle&quot;</span><span class="co"> </span><span class="dt">fillcolor</span><span class="ot">=</span><span class="st">&quot;#92B6E6&quot;</span><span class="co"> </span><span class="dt">style</span><span class="ot">=</span><span class="fu">filled</span><span class="ot">]</span>
+<span class="co">  </span><span class="ot">{</span><span class="co"> </span><span class="fu">G</span><span class="co">, </span><span class="fu">H</span><span class="co"> </span><span class="ot">}</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="fu">D</span>
+<span class="co">  </span><span class="ot">{</span><span class="co"> </span><span class="fu">I</span><span class="co">, </span><span class="fu">J</span><span class="co"> </span><span class="ot">}</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="fu">F</span>
+<span class="co">  </span><span class="ot">{</span><span class="co"> </span><span class="fu">D</span><span class="co">, </span><span class="fu">E</span><span class="co">, </span><span class="fu">F</span><span class="co"> </span><span class="ot">}</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="fu">B</span>
+<span class="co">  </span><span class="ot">{</span><span class="co"> </span><span class="fu">B</span><span class="co">, </span><span class="fu">C</span><span class="co"> </span><span class="ot">}</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="fu">A</span>
+<span class="ot">}</span></code></pre></div>
 </section>
-    </div>
+<section class="slide">
+</section>
   </div>
-  <script>
-    hljs.initHighlightingOnLoad();
-  </script>
+  <script src="/assets/documentary.js"></script>
 </body>
 </html>
