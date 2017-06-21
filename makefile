@@ -12,8 +12,8 @@ BUILDS_DIR = $(OBJECTS_DIR)/$(ASSETS_DIR)
 
 # use --toc option generate links to anchors
 MD = pandoc --data-dir=$(CURDIR) --from markdown \
-	--template documentary.html --standalone
-#	--filter ./graphviz.py
+	--template documentary.html --standalone \
+	--filter ./graphviz.py
 
 DOT = dot -Tsvg
 
@@ -55,7 +55,7 @@ serve:
 	cd $(OBJECTS_DIR) && python -m SimpleHTTPServer 8000
 
 clean:
-	rm -rf $(OBJECTS_DIR)
+	rm -rf $(OBJECTS_DIR)/*
 
 debug:
 	@echo $(ASSETS)
