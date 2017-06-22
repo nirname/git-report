@@ -2,7 +2,8 @@ h1 {
   color: #f64d27 !important;
 }
 h2, h3, strong, b {
-  color: #2a76dd !important;
+  /*color: #2a76dd !important;*/
+  color: #3182bd !important;
 }
 
 body, .deck-container {

@@ -18,12 +18,9 @@ $ git show ???
 </section>
 
 <section>
-
 Возможные значения
 
-<p class="fragment">
 **master**
-</p>
 
 <p class="fragment">
 **v1**
@@ -32,6 +29,21 @@ $ git show ???
 <p class="fragment">
 **b1713c7**
 </p>
+</section>
+
+<section>
+Возможные значения
+
+HEAD**@{0}**
+
+<p class="fragment">
+HEAD**^**
+</p>
+
+<p class="fragment">
+HEAD**~**
+</p>
+
 </section>
 
 <section>
@@ -55,23 +67,6 @@ Date:   Tue Jun 20 15:15:26 2017 +0300
 </section>
 
 <section>
-
-Возможные значения
-
-HEAD**@{0}**
-
-<p class="fragment">
-HEAD**^**
-</p>
-
-<p class="fragment">
-HEAD**~**
-</p>
-
-</section>
-
-<section>
-
 Выбираем перемещения **HEAD**
 
 ```shell
@@ -87,6 +82,30 @@ $ git show HEAD@{1}
 </section>
 
 <section>
+Выбираем **родителей**
+
+`HEAD^n` **n-й родитель**
+
+<p class="fragment">
+`HEAD~n` **n 1-x родителей**
+</p>
+
+<p class="fragment">
+`HEAD^1^1 == HEAD~2`
+</p>
+</section>
+
+<section>
+Выбираем **родителей**
+
+`HEAD^ == HEAD^1`
+
+`HEAD~ == HEAD~1`
+
+`HEAD  == HEAD^0 == HEAD~0`
+</section>
+
+<section>
 Выбираем родителей
 
 ```graphviz
@@ -99,18 +118,18 @@ digraph revisions {
   F -> C
   { B, C } -> A
 
-  A, B, C, F[fontcolor="white"]
+  A, B, C, I, J[fontcolor="white"]
 
-  A[fillcolor="#3F1E19"]
-  B[fillcolor="#B91E50"]
-  C[fillcolor="#7828A0"]
-  D[fillcolor="#FB6A4A"]
-  E[fillcolor="#F569D7"]
-  F[fillcolor="#3182BD"]
-  G[fillcolor="#60DBF1"]
-  H[fillcolor="#61D7A0"]
-  I[fillcolor="#A1EE88"]
-  J[fillcolor="#EDFE74"]
+  A[fillcolor="#40004b"]
+  B[fillcolor="#762a83"]
+  C[fillcolor="#9970ab"]
+  D[fillcolor="#c2a5cf"]
+  E[fillcolor="#e7d4e8"]
+  F[fillcolor="#d9f0d3"]
+  G[fillcolor="#a6dba0"]
+  H[fillcolor="#5aae61"]
+  I[fillcolor="#1b7837"]
+  J[fillcolor="#00441b"]
 
 }
 ```
@@ -130,18 +149,18 @@ digraph revisions {
   F -> C
   { B, C } -> A
 
-  A, B, C, F[fontcolor="white"]
+  A, B, C, I, J[fontcolor="white"]
 
-  A[fillcolor="#3F1E19" label="A = A^0"]
-  B[fillcolor="#B91E50" label="B = A^ = A^1 = A~1"]
-  C[fillcolor="#7828A0" label="C = A^2 = A^2"]
-  D[fillcolor="#FB6A4A" label="D = A^^ = A^1^1 = A~2"]
-  E[fillcolor="#F569D7" label="E = B^2 = A^^2"]
-  F[fillcolor="#3182BD" label="F = B^3 = A^^3"]
-  G[fillcolor="#60DBF1" label="G = A^^^ = A^1^1^1 = A~3"]
-  H[fillcolor="#61D7A0" label="H = D^2 = B^^2 = A^^^2 = A~2^2"]
-  I[fillcolor="#A1EE88" label="I = F^ = B^3^ = A^^3^"]
-  J[fillcolor="#EDFE74" label="J = F^2 = B^3^2 = A^^3^2"]
+  A[fillcolor="#40004b" label="A = A^0"]
+  B[fillcolor="#762a83" label="B = A^ = A^1 = A~1"]
+  C[fillcolor="#9970ab" label="C = A^2 = A^2"]
+  D[fillcolor="#c2a5cf" label="D = A^^ = A^1^1 = A~2"]
+  E[fillcolor="#e7d4e8" label="E = B^2 = A^^2"]
+  F[fillcolor="#d9f0d3" label="F = B^3 = A^^3"]
+  G[fillcolor="#a6dba0" label="G = A^^^ = A^1^1^1 = A~3"]
+  H[fillcolor="#5aae61" label="H = D^2 = B^^2 = A^^^2 = A~2^2"]
+  I[fillcolor="#1b7837" label="I = F^ = B^3^ = A^^3^"]
+  J[fillcolor="#00441b" label="J = F^2 = B^3^2 = A^^3^2"]
 }
 ```
 

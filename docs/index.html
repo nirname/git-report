@@ -80,14 +80,22 @@
 </section>
 <section>
 <p>Возможные значения</p>
-<p class="fragment">
-<strong>master</strong>
-</p>
+<p><strong>master</strong></p>
 <p class="fragment">
 <strong>v1</strong>
 </p>
 <p class="fragment">
 <strong>b1713c7</strong>
+</p>
+</section>
+<section>
+<p>Возможные значения</p>
+<p>HEAD<strong>@{0}</strong></p>
+<p class="fragment">
+HEAD<strong>^</strong>
+</p>
+<p class="fragment">
+HEAD<strong>~</strong>
 </p>
 </section>
 <section>
@@ -106,21 +114,27 @@ Date:   Tue Jun 20 15:15:26 2017 +0300
     Fix deploy</code></pre>
 </section>
 <section>
-<p>Возможные значения</p>
-<p>HEAD<strong>@{0}</strong></p>
-<p class="fragment">
-HEAD<strong>^</strong>
-</p>
-<p class="fragment">
-HEAD<strong>~</strong>
-</p>
-</section>
-<section>
 <p>Выбираем перемещения <strong>HEAD</strong></p>
 <pre class="shell"><code>$ git reflog
 b1713c7 HEAD@{0}: commit: Fixed env
 47194bc HEAD@{1}: clone: from git@github.com:uchiru/ansible-south-africa.git</code></pre>
 <pre class="shell"><code>$ git show HEAD@{1}</code></pre>
+</section>
+<section>
+<p>Выбираем <strong>родителей</strong></p>
+<p><code>HEAD^n</code> <strong>n-й родитель</strong></p>
+<p class="fragment">
+<code>HEAD~n</code> <strong>n 1-x родителей</strong>
+</p>
+<p class="fragment">
+<code>HEAD^1^1 == HEAD~2</code>
+</p>
+</section>
+<section>
+<p>Выбираем <strong>родителей</strong></p>
+<p><code>HEAD^ == HEAD^1</code></p>
+<p><code>HEAD~ == HEAD~1</code></p>
+<code>HEAD  == HEAD^0 == HEAD~0</code>
 </section>
 <section>
 <p>Выбираем родителей</p>
@@ -136,12 +150,12 @@ b1713c7 HEAD@{0}: commit: Fixed env
 <title>revisions</title>
 <!-- G -->
 <g id="node1" class="node"><title>G</title>
-<ellipse fill="#60dbf1" stroke="black" cx="18" cy="-234" rx="18" ry="18"/>
+<ellipse fill="#a6dba0" stroke="black" cx="18" cy="-234" rx="18" ry="18"/>
 <text text-anchor="middle" x="18" y="-229.8" font-family="Times,serif" font-size="14.00">G</text>
 </g>
 <!-- D -->
 <g id="node3" class="node"><title>D</title>
-<ellipse fill="#fb6a4a" stroke="black" cx="58" cy="-162" rx="18" ry="18"/>
+<ellipse fill="#c2a5cf" stroke="black" cx="58" cy="-162" rx="18" ry="18"/>
 <text text-anchor="middle" x="58" y="-157.8" font-family="Times,serif" font-size="14.00">D</text>
 </g>
 <!-- G&#45;&gt;D -->
@@ -151,7 +165,7 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- H -->
 <g id="node2" class="node"><title>H</title>
-<ellipse fill="#61d7a0" stroke="black" cx="72" cy="-234" rx="18" ry="18"/>
+<ellipse fill="#5aae61" stroke="black" cx="72" cy="-234" rx="18" ry="18"/>
 <text text-anchor="middle" x="72" y="-229.8" font-family="Times,serif" font-size="14.00">H</text>
 </g>
 <!-- H&#45;&gt;D -->
@@ -161,7 +175,7 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- B -->
 <g id="node8" class="node"><title>B</title>
-<ellipse fill="#b91e50" stroke="black" cx="112" cy="-90" rx="18" ry="18"/>
+<ellipse fill="#762a83" stroke="black" cx="112" cy="-90" rx="18" ry="18"/>
 <text text-anchor="middle" x="112" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">B</text>
 </g>
 <!-- D&#45;&gt;B -->
@@ -171,13 +185,13 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- I -->
 <g id="node4" class="node"><title>I</title>
-<ellipse fill="#a1ee88" stroke="black" cx="139" cy="-234" rx="18" ry="18"/>
-<text text-anchor="middle" x="139" y="-229.8" font-family="Times,serif" font-size="14.00">I</text>
+<ellipse fill="#1b7837" stroke="black" cx="139" cy="-234" rx="18" ry="18"/>
+<text text-anchor="middle" x="139" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">I</text>
 </g>
 <!-- F -->
 <g id="node6" class="node"><title>F</title>
-<ellipse fill="#3182bd" stroke="black" cx="166" cy="-162" rx="18" ry="18"/>
-<text text-anchor="middle" x="166" y="-157.8" font-family="Times,serif" font-size="14.00" fill="white">F</text>
+<ellipse fill="#d9f0d3" stroke="black" cx="166" cy="-162" rx="18" ry="18"/>
+<text text-anchor="middle" x="166" y="-157.8" font-family="Times,serif" font-size="14.00">F</text>
 </g>
 <!-- I&#45;&gt;F -->
 <g id="edge3" class="edge"><title>I&#45;&gt;F</title>
@@ -186,8 +200,8 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- J -->
 <g id="node5" class="node"><title>J</title>
-<ellipse fill="#edfe74" stroke="black" cx="193" cy="-234" rx="18" ry="18"/>
-<text text-anchor="middle" x="193" y="-229.8" font-family="Times,serif" font-size="14.00">J</text>
+<ellipse fill="#00441b" stroke="black" cx="193" cy="-234" rx="18" ry="18"/>
+<text text-anchor="middle" x="193" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">J</text>
 </g>
 <!-- J&#45;&gt;F -->
 <g id="edge4" class="edge"><title>J&#45;&gt;F</title>
@@ -201,7 +215,7 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- C -->
 <g id="node9" class="node"><title>C</title>
-<ellipse fill="#7828a0" stroke="black" cx="166" cy="-90" rx="18" ry="18"/>
+<ellipse fill="#9970ab" stroke="black" cx="166" cy="-90" rx="18" ry="18"/>
 <text text-anchor="middle" x="166" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">C</text>
 </g>
 <!-- F&#45;&gt;C -->
@@ -211,7 +225,7 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- E -->
 <g id="node7" class="node"><title>E</title>
-<ellipse fill="#f569d7" stroke="black" cx="112" cy="-162" rx="18" ry="18"/>
+<ellipse fill="#e7d4e8" stroke="black" cx="112" cy="-162" rx="18" ry="18"/>
 <text text-anchor="middle" x="112" y="-157.8" font-family="Times,serif" font-size="14.00">E</text>
 </g>
 <!-- E&#45;&gt;B -->
@@ -221,7 +235,7 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- A -->
 <g id="node10" class="node"><title>A</title>
-<ellipse fill="#3f1e19" stroke="black" cx="139" cy="-18" rx="18" ry="18"/>
+<ellipse fill="#40004b" stroke="black" cx="139" cy="-18" rx="18" ry="18"/>
 <text text-anchor="middle" x="139" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">A</text>
 </g>
 <!-- B&#45;&gt;A -->
@@ -252,12 +266,12 @@ b1713c7 HEAD@{0}: commit: Fixed env
 <title>revisions</title>
 <!-- G -->
 <g id="node1" class="node"><title>G</title>
-<path fill="#60dbf1" stroke="black" d="M161.732,-252C161.732,-252 12.0893,-252 12.0893,-252 6.08926,-252 0.0892637,-246 0.0892637,-240 0.0892637,-240 0.0892637,-228 0.0892637,-228 0.0892637,-222 6.08926,-216 12.0893,-216 12.0893,-216 161.732,-216 161.732,-216 167.732,-216 173.732,-222 173.732,-228 173.732,-228 173.732,-240 173.732,-240 173.732,-246 167.732,-252 161.732,-252"/>
+<path fill="#a6dba0" stroke="black" d="M161.732,-252C161.732,-252 12.0893,-252 12.0893,-252 6.08926,-252 0.0892637,-246 0.0892637,-240 0.0892637,-240 0.0892637,-228 0.0892637,-228 0.0892637,-222 6.08926,-216 12.0893,-216 12.0893,-216 161.732,-216 161.732,-216 167.732,-216 173.732,-222 173.732,-228 173.732,-228 173.732,-240 173.732,-240 173.732,-246 167.732,-252 161.732,-252"/>
 <text text-anchor="middle" x="86.9106" y="-229.8" font-family="Times,serif" font-size="14.00">G = A^^^ = A^1^1^1 = A~3</text>
 </g>
 <!-- D -->
 <g id="node3" class="node"><title>D</title>
-<path fill="#fb6a4a" stroke="black" d="M342.594,-180C342.594,-180 213.228,-180 213.228,-180 207.228,-180 201.228,-174 201.228,-168 201.228,-168 201.228,-156 201.228,-156 201.228,-150 207.228,-144 213.228,-144 213.228,-144 342.594,-144 342.594,-144 348.594,-144 354.594,-150 354.594,-156 354.594,-156 354.594,-168 354.594,-168 354.594,-174 348.594,-180 342.594,-180"/>
+<path fill="#c2a5cf" stroke="black" d="M342.594,-180C342.594,-180 213.228,-180 213.228,-180 207.228,-180 201.228,-174 201.228,-168 201.228,-168 201.228,-156 201.228,-156 201.228,-150 207.228,-144 213.228,-144 213.228,-144 342.594,-144 342.594,-144 348.594,-144 354.594,-150 354.594,-156 354.594,-156 354.594,-168 354.594,-168 354.594,-174 348.594,-180 342.594,-180"/>
 <text text-anchor="middle" x="277.911" y="-157.8" font-family="Times,serif" font-size="14.00">D = A^^ = A^1^1 = A~2</text>
 </g>
 <!-- G&#45;&gt;D -->
@@ -267,7 +281,7 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- H -->
 <g id="node2" class="node"><title>H</title>
-<path fill="#61d7a0" stroke="black" d="M392.301,-252C392.301,-252 203.521,-252 203.521,-252 197.521,-252 191.521,-246 191.521,-240 191.521,-240 191.521,-228 191.521,-228 191.521,-222 197.521,-216 203.521,-216 203.521,-216 392.301,-216 392.301,-216 398.301,-216 404.301,-222 404.301,-228 404.301,-228 404.301,-240 404.301,-240 404.301,-246 398.301,-252 392.301,-252"/>
+<path fill="#5aae61" stroke="black" d="M392.301,-252C392.301,-252 203.521,-252 203.521,-252 197.521,-252 191.521,-246 191.521,-240 191.521,-240 191.521,-228 191.521,-228 191.521,-222 197.521,-216 203.521,-216 203.521,-216 392.301,-216 392.301,-216 398.301,-216 404.301,-222 404.301,-228 404.301,-228 404.301,-240 404.301,-240 404.301,-246 398.301,-252 392.301,-252"/>
 <text text-anchor="middle" x="297.911" y="-229.8" font-family="Times,serif" font-size="14.00">H = D^2 = B^^2 = A^^^2 = A~2^2</text>
 </g>
 <!-- H&#45;&gt;D -->
@@ -277,7 +291,7 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- B -->
 <g id="node8" class="node"><title>B</title>
-<path fill="#b91e50" stroke="black" d="M477.182,-108C477.182,-108 368.639,-108 368.639,-108 362.639,-108 356.639,-102 356.639,-96 356.639,-96 356.639,-84 356.639,-84 356.639,-78 362.639,-72 368.639,-72 368.639,-72 477.182,-72 477.182,-72 483.182,-72 489.182,-78 489.182,-84 489.182,-84 489.182,-96 489.182,-96 489.182,-102 483.182,-108 477.182,-108"/>
+<path fill="#762a83" stroke="black" d="M477.182,-108C477.182,-108 368.639,-108 368.639,-108 362.639,-108 356.639,-102 356.639,-96 356.639,-96 356.639,-84 356.639,-84 356.639,-78 362.639,-72 368.639,-72 368.639,-72 477.182,-72 477.182,-72 483.182,-72 489.182,-78 489.182,-84 489.182,-84 489.182,-96 489.182,-96 489.182,-102 483.182,-108 477.182,-108"/>
 <text text-anchor="middle" x="422.911" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">B = A^ = A^1 = A~1</text>
 </g>
 <!-- D&#45;&gt;B -->
@@ -287,13 +301,13 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- I -->
 <g id="node4" class="node"><title>I</title>
-<path fill="#a1ee88" stroke="black" d="M575.644,-252C575.644,-252 454.177,-252 454.177,-252 448.177,-252 442.177,-246 442.177,-240 442.177,-240 442.177,-228 442.177,-228 442.177,-222 448.177,-216 454.177,-216 454.177,-216 575.644,-216 575.644,-216 581.644,-216 587.644,-222 587.644,-228 587.644,-228 587.644,-240 587.644,-240 587.644,-246 581.644,-252 575.644,-252"/>
-<text text-anchor="middle" x="514.911" y="-229.8" font-family="Times,serif" font-size="14.00">I = F^ = B^3^ = A^^3^</text>
+<path fill="#1b7837" stroke="black" d="M575.644,-252C575.644,-252 454.177,-252 454.177,-252 448.177,-252 442.177,-246 442.177,-240 442.177,-240 442.177,-228 442.177,-228 442.177,-222 448.177,-216 454.177,-216 454.177,-216 575.644,-216 575.644,-216 581.644,-216 587.644,-222 587.644,-228 587.644,-228 587.644,-240 587.644,-240 587.644,-246 581.644,-252 575.644,-252"/>
+<text text-anchor="middle" x="514.911" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">I = F^ = B^3^ = A^^3^</text>
 </g>
 <!-- F -->
 <g id="node6" class="node"><title>F</title>
-<path fill="#3182bd" stroke="black" d="M595.878,-180C595.878,-180 513.943,-180 513.943,-180 507.943,-180 501.943,-174 501.943,-168 501.943,-168 501.943,-156 501.943,-156 501.943,-150 507.943,-144 513.943,-144 513.943,-144 595.878,-144 595.878,-144 601.878,-144 607.878,-150 607.878,-156 607.878,-156 607.878,-168 607.878,-168 607.878,-174 601.878,-180 595.878,-180"/>
-<text text-anchor="middle" x="554.911" y="-157.8" font-family="Times,serif" font-size="14.00" fill="white">F = B^3 = A^^3</text>
+<path fill="#d9f0d3" stroke="black" d="M595.878,-180C595.878,-180 513.943,-180 513.943,-180 507.943,-180 501.943,-174 501.943,-168 501.943,-168 501.943,-156 501.943,-156 501.943,-150 507.943,-144 513.943,-144 513.943,-144 595.878,-144 595.878,-144 601.878,-144 607.878,-150 607.878,-156 607.878,-156 607.878,-168 607.878,-168 607.878,-174 601.878,-180 595.878,-180"/>
+<text text-anchor="middle" x="554.911" y="-157.8" font-family="Times,serif" font-size="14.00">F = B^3 = A^^3</text>
 </g>
 <!-- I&#45;&gt;F -->
 <g id="edge3" class="edge"><title>I&#45;&gt;F</title>
@@ -302,8 +316,8 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- J -->
 <g id="node5" class="node"><title>J</title>
-<path fill="#edfe74" stroke="black" d="M760.43,-252C760.43,-252 617.391,-252 617.391,-252 611.391,-252 605.391,-246 605.391,-240 605.391,-240 605.391,-228 605.391,-228 605.391,-222 611.391,-216 617.391,-216 617.391,-216 760.43,-216 760.43,-216 766.43,-216 772.43,-222 772.43,-228 772.43,-228 772.43,-240 772.43,-240 772.43,-246 766.43,-252 760.43,-252"/>
-<text text-anchor="middle" x="688.911" y="-229.8" font-family="Times,serif" font-size="14.00">J = F^2 = B^3^2 = A^^3^2</text>
+<path fill="#00441b" stroke="black" d="M760.43,-252C760.43,-252 617.391,-252 617.391,-252 611.391,-252 605.391,-246 605.391,-240 605.391,-240 605.391,-228 605.391,-228 605.391,-222 611.391,-216 617.391,-216 617.391,-216 760.43,-216 760.43,-216 766.43,-216 772.43,-222 772.43,-228 772.43,-228 772.43,-240 772.43,-240 772.43,-246 766.43,-252 760.43,-252"/>
+<text text-anchor="middle" x="688.911" y="-229.8" font-family="Times,serif" font-size="14.00" fill="white">J = F^2 = B^3^2 = A^^3^2</text>
 </g>
 <!-- J&#45;&gt;F -->
 <g id="edge4" class="edge"><title>J&#45;&gt;F</title>
@@ -317,7 +331,7 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- C -->
 <g id="node9" class="node"><title>C</title>
-<path fill="#7828a0" stroke="black" d="M596.368,-108C596.368,-108 519.454,-108 519.454,-108 513.454,-108 507.454,-102 507.454,-96 507.454,-96 507.454,-84 507.454,-84 507.454,-78 513.454,-72 519.454,-72 519.454,-72 596.368,-72 596.368,-72 602.368,-72 608.368,-78 608.368,-84 608.368,-84 608.368,-96 608.368,-96 608.368,-102 602.368,-108 596.368,-108"/>
+<path fill="#9970ab" stroke="black" d="M596.368,-108C596.368,-108 519.454,-108 519.454,-108 513.454,-108 507.454,-102 507.454,-96 507.454,-96 507.454,-84 507.454,-84 507.454,-78 513.454,-72 519.454,-72 519.454,-72 596.368,-72 596.368,-72 602.368,-72 608.368,-78 608.368,-84 608.368,-84 608.368,-96 608.368,-96 608.368,-102 602.368,-108 596.368,-108"/>
 <text text-anchor="middle" x="557.911" y="-85.8" font-family="Times,serif" font-size="14.00" fill="white">C = A^2 = A^2</text>
 </g>
 <!-- F&#45;&gt;C -->
@@ -327,7 +341,7 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- E -->
 <g id="node7" class="node"><title>E</title>
-<path fill="#f569d7" stroke="black" d="M467.144,-180C467.144,-180 384.677,-180 384.677,-180 378.677,-180 372.677,-174 372.677,-168 372.677,-168 372.677,-156 372.677,-156 372.677,-150 378.677,-144 384.677,-144 384.677,-144 467.144,-144 467.144,-144 473.144,-144 479.144,-150 479.144,-156 479.144,-156 479.144,-168 479.144,-168 479.144,-174 473.144,-180 467.144,-180"/>
+<path fill="#e7d4e8" stroke="black" d="M467.144,-180C467.144,-180 384.677,-180 384.677,-180 378.677,-180 372.677,-174 372.677,-168 372.677,-168 372.677,-156 372.677,-156 372.677,-150 378.677,-144 384.677,-144 384.677,-144 467.144,-144 467.144,-144 473.144,-144 479.144,-150 479.144,-156 479.144,-156 479.144,-168 479.144,-168 479.144,-174 473.144,-180 467.144,-180"/>
 <text text-anchor="middle" x="425.911" y="-157.8" font-family="Times,serif" font-size="14.00">E = B^2 = A^^2</text>
 </g>
 <!-- E&#45;&gt;B -->
@@ -337,7 +351,7 @@ b1713c7 HEAD@{0}: commit: Fixed env
 </g>
 <!-- A -->
 <g id="node10" class="node"><title>A</title>
-<path fill="#3f1e19" stroke="black" d="M509.565,-36C509.565,-36 470.256,-36 470.256,-36 464.256,-36 458.256,-30 458.256,-24 458.256,-24 458.256,-12 458.256,-12 458.256,-6 464.256,-0 470.256,-0 470.256,-0 509.565,-0 509.565,-0 515.565,-0 521.565,-6 521.565,-12 521.565,-12 521.565,-24 521.565,-24 521.565,-30 515.565,-36 509.565,-36"/>
+<path fill="#40004b" stroke="black" d="M509.565,-36C509.565,-36 470.256,-36 470.256,-36 464.256,-36 458.256,-30 458.256,-24 458.256,-24 458.256,-12 458.256,-12 458.256,-6 464.256,-0 470.256,-0 470.256,-0 509.565,-0 509.565,-0 515.565,-0 521.565,-6 521.565,-12 521.565,-12 521.565,-24 521.565,-24 521.565,-30 515.565,-36 509.565,-36"/>
 <text text-anchor="middle" x="489.911" y="-13.8" font-family="Times,serif" font-size="14.00" fill="white">A = A^0</text>
 </g>
 <!-- B&#45;&gt;A -->
