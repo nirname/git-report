@@ -4,8 +4,9 @@
 
 ```graphviz
 digraph {
-  node [shape=none fontsize=30 fontcolor="#3182BD"]
+  esep=1
   bgcolor="transparent"
+  node [shape=none fontsize=30 fontcolor="#3182BD"]
   { checkout show "cherry-pick" reset } -> revision
 }
 

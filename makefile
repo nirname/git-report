@@ -38,15 +38,17 @@ $(ASSETS_TARGETS): $(BUILDS_DIR)/%: $(ASSETS_DIR)/%
 sources: $(MD_TARGETS) $(DOT_TARGETS)
 
 SLIDES = $(shell find \
+	part-1* \
+	init* \
+	staging* \
+	part-2* \
 	checkout* \
 	revisions* \
-	git* \
-	init* \
 )
 
 $(SOURCE_DIR)/index.md: $(SLIDES)
-	@rm $@
-	find $^ | xargs -I{} sh -c "echo '<section class=\"center\">'; cat {}; echo '\n</section>\n'" > $@
+	@rm -f $@
+	find $^ | xargs -I{} sh -c "echo '<section>'; cat {}; echo '\n</section>\n'" > $@
 
 $(TARGET_DIR)/%.html: $(SOURCE_DIR)/index.md $(SOURCE_DIR)/makefile plugins/graphviz.py templates/documentary.html
 	@mkdir -p $(@D)

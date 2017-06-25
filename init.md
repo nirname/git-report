@@ -4,7 +4,7 @@
 Инициализировать новый проект c **Git**
 
 ```bash
-git init trygit
+git init new-project
 ```
 </section>
 
@@ -12,7 +12,8 @@ git init trygit
 Добавить существуй проект в **Git**
 
 ```bash
-cd trygit
+cd exsisting-project
+git init
 git init .
 ```
 </section>

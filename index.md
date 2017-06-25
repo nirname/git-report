@@ -1,4 +1,76 @@
-<section class="center">
+<section>
+# Git
+
+## Part 1
+</section>
+
+<section>
+# Init
+
+<section>
+Инициализировать новый проект c **Git**
+
+```bash
+git init new-project
+```
+</section>
+
+<section>
+Добавить существуй проект в **Git**
+
+```bash
+cd existing-project
+git init
+git init .
+```
+</section>
+</section>
+
+<section>
+# Staging
+
+<section>
+```graphviz
+digraph {
+  labeljust="r"
+  bgcolor="transparent"
+  node[shape="rect" style="filled"]
+
+  "working directory" -> "staging area" [label="   add"]
+  "staging area" -> repository [label="   commit"]
+
+  "working directory" [fillcolor="#f1a340"]
+  "staging area"      [fillcolor="#f7f7f7"]
+  repository          [fillcolor="#998ec3"]
+}
+```
+</section>
+
+<section>
+## Add
+
+```shell
+git add .
+```
+
+## Reset
+```shell
+git reset
+```
+</section>
+
+
+
+
+</section>
+
+<section>
+# Git
+
+## Part 2
+</section>
+
+<section>
 # CHECKOUT
 
 <section>
@@ -18,15 +90,16 @@ git checkout 26c0aa12792e6344f5cc46718631f270b5fbb9b2
 </section>
 </section>
 
-<section class="center">
+<section>
 # Revisions
 
 <section>
 
 ```graphviz
 digraph {
-  node [shape=none fontsize=30 fontcolor="#3182BD"]
+  esep=1
   bgcolor="transparent"
+  node [shape=none fontsize=30 fontcolor="#3182BD"]
   { checkout show "cherry-pick" reset } -> revision
 }
 
@@ -185,32 +258,6 @@ digraph revisions {
 }
 ```
 
-</section>
-</section>
-
-<section class="center">
-# Git
-
-</section>
-
-<section class="center">
-# Init
-
-<section>
-Инициализировать новый проект c **Git**
-
-```bash
-git init trygit
-```
-</section>
-
-<section>
-Добавить существуй проект в **Git**
-
-```bash
-cd trygit
-git init .
-```
 </section>
 </section>
 
