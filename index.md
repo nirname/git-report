@@ -8,14 +8,21 @@
 # Init
 
 <section>
+Первоначальная настройка **Git**
+
+```shell
+$ git config --global user.name "Nikolay Rozhkov"
+$ git config --global user.email rozhkov@uchi.ru
+```
+</section>
+
+<section>
 Инициализировать новый проект c **Git**
 
 ```bash
 git init new-project
 ```
-</section>
 
-<section>
 Добавить существуй проект в **Git**
 
 ```bash
@@ -32,9 +39,9 @@ git init .
 <section>
 ```graphviz
 digraph {
-  labeljust="r"
   bgcolor="transparent"
-  node[shape="rect" style="filled"]
+  node[shape="rect" style="filled" fontsize=20]
+  edge[fontsize=20]
 
   "working directory" -> "staging area" [label="   add"]
   "staging area" -> repository [label="   commit"]
@@ -59,8 +66,24 @@ git reset
 ```
 </section>
 
+<section>
+## Remove
 
+```shell
+git rm
+git add -A
+git add --all
+```
+</section>
 
+<section>
+## Save changes
+
+```shell
+git status
+git commit
+```
+</section>
 
 </section>
 
