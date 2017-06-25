@@ -39,16 +39,29 @@ git init .
 <section>
 ```graphviz
 digraph {
-  bgcolor="transparent"
-  node[shape="rect" style="filled" fontsize=20]
-  edge[fontsize=20]
+  graph[bgcolor="transparent"]
+  node[fontsize=20]
 
-  "working directory" -> "staging area" [label="   add"]
-  "staging area" -> repository [label="   commit"]
+  subgraph areas {
+    node[shape="rect" style="filled"]
+    wd [fillcolor="#f1a340" label="Working Directory"]
+    sa [fillcolor="#f7f7f7" label="Staging Area"]
+    rp [fillcolor="#998ec3" label="Repository"]
+  }
 
-  "working directory" [fillcolor="#f1a340"]
-  "staging area"      [fillcolor="#f7f7f7"]
-  repository          [fillcolor="#998ec3"]
+  subgraph commands {
+    node[shape="plaintext"]
+    add
+    commit
+    reset
+  }
+
+  wd -> add [arrowhead="none"]
+  add -> sa
+  sa -> commit [arrowhead="none"]
+  commit -> rp
+  sa -> reset [dir="back"]
+  reset -> rp [arrowhead="none"]
 }
 ```
 </section>
@@ -470,6 +483,10 @@ $ git show ???
 
 <p class="fragment">
 **v1**
+</p>
+
+<p class="fragment">
+**b1713c7**
 </p>
 
 <p class="fragment">

@@ -30,6 +30,10 @@ $ git show ???
 <p class="fragment">
 **b1713c7**
 </p>
+
+<p class="fragment">
+**b1713c7**
+</p>
 </section>
 
 <section>
