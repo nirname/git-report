@@ -38,6 +38,7 @@ $(ASSETS_TARGETS): $(BUILDS_DIR)/%: $(ASSETS_DIR)/%
 sources: $(MD_TARGETS) $(DOT_TARGETS)
 
 SLIDES = $(shell find \
+	checkout* \
 	revisions* \
 	git* \
 	init* \
