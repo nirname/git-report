@@ -41,6 +41,8 @@ SLIDES = $(shell find \
 	part-1* \
 	init* \
 	staging* \
+	undo* \
+	branch* \
 	part-2* \
 	checkout* \
 	revisions* \

@@ -41,10 +41,14 @@ git add --all
 </section>
 
 <section>
-## Save changes
+## Save
 
 ```shell
 git status
 git commit
+```
+
+```shell
+git commit -m 'Here goes message'
 ```
 </section>
