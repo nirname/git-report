@@ -3,7 +3,7 @@
 Изменение последнего коммита
 
 ```shell
-$ git commit --amend
+git commit --amend
 ```
 
 Отмена изменений файла

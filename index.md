@@ -11,8 +11,8 @@
 Первоначальная настройка **Git**
 
 ```shell
-$ git config --global user.name "Nikolay Rozhkov"
-$ git config --global user.email rozhkov@uchi.ru
+git config --global user.name "Nikolay Rozhkov"
+git config --global user.email rozhkov@uchi.ru
 ```
 </section>
 
@@ -97,7 +97,7 @@ git commit -m 'Here goes message'
 Изменение последнего коммита
 
 ```shell
-$ git commit --amend
+git commit --amend
 ```
 
 Отмена изменений файла
