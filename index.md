@@ -267,7 +267,7 @@ digraph {
 </section>
 
 <section>
-Слияние **fast forward, "Перемотка"**
+Слияние **fast-forward, "Перемотка"**
 
 ```shell
 git checkout master
