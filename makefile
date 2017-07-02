@@ -1,7 +1,7 @@
 # 'Makefile'
 
 # Where sources are located
-SOURCE_DIR = .
+SOURCE_DIR = source
 # Where all the compiled sources will be
 TARGET_DIR = docs
 
@@ -36,24 +36,25 @@ $(ASSETS_TARGETS): $(BUILDS_DIR)/%: $(ASSETS_DIR)/%
 	cp -f $< $@
 
 sources: $(MD_TARGETS)
+
 #$(DOT_TARGETS)
 
 SLIDES = $(shell find \
-	part-1.md \
-	init.md \
-	staging.md \
-	undo.md \
-	branch.md \
-	part-2.md \
-	checkout.md \
-	revisions.md \
+	$(SOURCE_DIR)/part-1.md \
+	$(SOURCE_DIR)/init.md \
+	$(SOURCE_DIR)/staging.md \
+	$(SOURCE_DIR)/undo.md \
+	$(SOURCE_DIR)/branch.md \
+	$(SOURCE_DIR)/part-2.md \
+	$(SOURCE_DIR)/checkout.md \
+	$(SOURCE_DIR)/revisions.md \
 )
 
-$(SOURCE_DIR)/index.md: $(SLIDES)
+$(TARGET_DIR)/index.md: $(SLIDES)
 	@rm -f $@
 	find $^ | xargs -I{} sh -c "echo '<section>'; cat {}; echo '\n</section>\n'" > $@
 
-$(TARGET_DIR)/%.html: $(SOURCE_DIR)/index.md $(SOURCE_DIR)/makefile plugins/graphviz.py templates/documentary.html
+$(TARGET_DIR)/%.html: $(TARGET_DIR)/index.md makefile plugins/graphviz.py templates/documentary.html
 	@mkdir -p $(@D)
 	$(MD) --to html5 $< --output $@
 	@sed -i '' -e '/href="./s/\.md/\.html/g' $@
