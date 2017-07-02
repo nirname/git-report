@@ -39,13 +39,13 @@ sources: $(MD_TARGETS)
 #$(DOT_TARGETS)
 
 SLIDES = $(shell find \
-	checkout.md \
 	part-1.md \
 	init.md \
 	staging.md \
 	undo.md \
 	branch.md \
 	part-2.md \
+	checkout.md \
 	revisions.md \
 )
 
