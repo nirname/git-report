@@ -1,4 +1,78 @@
 <section>
+# CHECKOUT
+
+<section>
+### Resolve conflicts
+```
+git merge feature
+```
+
+```
+git checkout --ours file.txt # master
+git checkout --theirs file.txt # feature
+```
+</section>
+
+<section>
+### Resolve conflicts
+```
+git rebase master
+git pull --rebase
+```
+
+```
+git checkout --ours file.txt # feature
+git checkout --theirs file.txt # master
+```
+</section>
+
+<section>
+### Detached
+```
+git checkout 26c0aa12792e6344f5
+```
+
+```graphviz
+digraph {
+  graph[ splines=false fontname="Arial" bgcolor="transparent" rankdir=LR]
+  node [style="filled" fontcolor="white" fontsize=20]
+
+  subgraph nodes {
+    node [shape="circle" color="#e66101" fillcolor="#e66101"]
+    A B C
+  }
+
+  { A -> B -> C }
+
+  {
+    node [shape="rect" color="#4dac26" fillcolor="#4dac26"]
+    HEAD
+  }
+
+  {
+    node [shape="rect" color="#0571b0" fillcolor="#0571b0"]
+    master
+  }
+
+  {
+    rank = same
+    B -> HEAD [dir="back"]
+  }
+
+  {
+    rank = same
+    C -> master [dir="back"]
+  }
+}
+```
+
+```
+git checkout 26c0aa12792e6344f5 -b feature
+```
+</section>
+</section>
+
+<section>
 # Git
 
 ## Part 1
@@ -37,36 +111,6 @@ git init .
 # Staging
 
 <section>
-```graphviz
-digraph {
-  graph[bgcolor="transparent"]
-  node[fontsize=20]
-
-  subgraph areas {
-    node[shape="rect" style="filled"]
-    wd [fillcolor="#f1a340" label="Working Directory"]
-    sa [fillcolor="#f7f7f7" label="Staging Area"]
-    rp [fillcolor="#998ec3" label="Repository"]
-  }
-
-  subgraph commands {
-    node[shape="plaintext"]
-    add
-    commit
-    reset
-  }
-
-  wd -> add [arrowhead="none"]
-  add -> sa
-  sa -> commit [arrowhead="none"]
-  commit -> rp
-  sa -> reset [dir="back"]
-  reset -> rp [arrowhead="none"]
-}
-```
-</section>
-
-<section>
 ## Add
 
 ```shell
@@ -90,7 +134,7 @@ git add --all
 </section>
 
 <section>
-## Save
+## Commit
 
 ```shell
 git status
@@ -102,6 +146,9 @@ git commit -m 'Here goes message'
 ```
 </section>
 
+<section>
+![Staging](assets/staging.svg)
+</section>
 </section>
 
 <section>
@@ -433,26 +480,6 @@ digraph {
 # Git
 
 ## Part 2
-</section>
-
-<section>
-# CHECKOUT
-
-<section>
-```
--b
---ours
---theirs
-```
-</section>
-
-<section>
-### Detached
-
-```
-git checkout 26c0aa12792e6344f5cc46718631f270b5fbb9b2
-```
-</section>
 </section>
 
 <section>

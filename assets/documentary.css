@@ -9,3 +9,7 @@ h2, h3, strong, b {
 body, .deck-container {
   background-color: #eae9e1 !important;
 }
+
+img {
+  border: none !important;
+}

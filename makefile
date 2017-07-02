@@ -17,7 +17,7 @@ MD = pandoc --data-dir=$(CURDIR) --from markdown \
 
 DOT = dot -Tsvg
 
-ASSETS_SOURCES = $(shell find $(ASSETS_DIR) -type f | grep -E ".*(css|js|woff|ttf|eot)" | cut -sd / -f 2-)
+ASSETS_SOURCES = $(shell find $(ASSETS_DIR) -type f | grep -E ".*(css|js|woff|ttf|eot|svg)" | cut -sd / -f 2-)
 ASSETS_TARGETS = $(ASSETS_SOURCES:%=$(BUILDS_DIR)/%)
 
 # MD_SOURCES = $(shell find $(SOURCE_DIR) -name 'index.md' | cut -sd / -f 2-)
@@ -35,17 +35,18 @@ $(ASSETS_TARGETS): $(BUILDS_DIR)/%: $(ASSETS_DIR)/%
 	@mkdir -p $(@D)
 	cp -f $< $@
 
-sources: $(MD_TARGETS) $(DOT_TARGETS)
+sources: $(MD_TARGETS)
+#$(DOT_TARGETS)
 
 SLIDES = $(shell find \
-	part-1* \
-	init* \
-	staging* \
-	undo* \
-	branch* \
-	part-2* \
-	checkout* \
-	revisions* \
+	checkout.md \
+	part-1.md \
+	init.md \
+	staging.md \
+	undo.md \
+	branch.md \
+	part-2.md \
+	revisions.md \
 )
 
 $(SOURCE_DIR)/index.md: $(SLIDES)

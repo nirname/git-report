@@ -1,0 +1,13 @@
+participant "Wokring directory" as WD#f1a340
+participant "Index" as IND#f7f7f7
+participant "Repository" as REPO#998ec3
+
+REPO ->WD: checkout
+WD -> IND: add
+IND -> REPO: commit
+
+linear
+REPO -> REPO: reset \--soft
+REPO -> IND: reset \--mixed
+IND -> WD: reset \--hard
+linear off

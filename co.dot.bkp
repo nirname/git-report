@@ -1,0 +1,40 @@
+digraph {
+  graph[bgcolor="transparent"]
+  node[fontsize=20]
+
+  subgraph areas {
+    node[shape="rect" style="filled"]
+    rank="same"
+    wd [fillcolor="#f1a340" label="Working Directory"]
+    sa [fillcolor="#f7f7f7" label="Staging Area"]
+    rp [fillcolor="#998ec3" label="Repository"]
+  }
+
+  {
+    node[style="invis"]
+    wd -> wd1 -> wd2 -> wd3
+    sa        -> sa2 -> sa3
+    rp -> rp1 -> rp2 -> rp3
+  }
+
+  {
+    rank="same"
+    wd1 rp1
+  }
+
+  {
+    rank="same"
+    wd2 sa2 rp2
+  }
+
+  {
+    rank="same"
+    wd3 sa3 rp3
+  }
+
+  wd1 -> rp1 [label="checkout" dir="back"]
+  wd2 -> sa2 [label="add"]
+  sa3 -> rp3 [label="commit"]
+
+  // rp1 -> wd1 [label="checkout"]
+}
