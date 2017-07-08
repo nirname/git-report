@@ -31,15 +31,12 @@ $ git show ???
 **b1713c7**
 </p>
 
-<p class="fragment">
-**b1713c7**
-</p>
 </section>
 
 <section>
 Возможные значения
 
-HEAD**@{0}**
+HEAD**@{**0**}**
 
 <p class="fragment">
 HEAD**^**
