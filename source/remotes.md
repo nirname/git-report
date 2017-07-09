@@ -200,7 +200,7 @@ digraph {
 ```
 
 ```shell
-git merge source/master
+git fetch && git merge source/master
 git pull source
 ```
 
@@ -240,6 +240,7 @@ digraph {
 ```shell
 source:destination
 git push origin :topic
+git push origin --delete topic
 ```
 
 </section>

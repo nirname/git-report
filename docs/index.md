@@ -1,348 +1,4 @@
 <section>
-# Remotes
-
-<section>
-
-```shell
-git init uchi && cd ..
-```
-
-<pre><code class="hljs nohighlight">git clone uchi<span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;"> -o source</span> local
-cd local<span class="fragment fade-up" data-fragment-index="1" style="color: #5e3c99"> && git branch -m main</span>
-<span class="fragment fade-up" data-fragment-index="2" style="color: #e66101">git br main --unset-upstream</span>
-cat .git/config</code></pre>
-
-<pre><code class="hljs nohighlight">[remote "<span class="fragment fade-out" data-fragment-index="0">origin</span><span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;">source</span>"]
-  url = /tmp/uchi
-  fetch = +refs/heads/*:refs/remotes/<span class="fragment fade-out" data-fragment-index="0">origin</span><span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;">source</span>/*
-[branch "<span class="fragment fade-out" data-fragment-index="1">master</span><span class="fragment fade-up" data-fragment-index="1" style="color: #5e3c99">main</span>"]
-  <span class="fragment fade-out" data-fragment-index="2">remote = <span class="fragment fade-out" data-fragment-index="0">origin</span><span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;">source</span>
-  merge = refs/heads/master</code></pre></span>
-
-</section>
-
-<section>
-
-```graphviz
-digraph {
-  graph[bgcolor="transparent" rankdir=LR]
-  node [style="filled" fontcolor="white" fontsize=20]
-
-  {
-    node[shape="circle" fillcolor="#e66101"]
-    A -> B
-  }
-
-  {
-    node[shape="rect" fillcolor="#0571b0"]
-    rank="same"
-    master -> B
-  }
-}
-```
-
-```
-git clone uchi -o source local
-```
-
-```graphviz
-digraph {
-  graph[bgcolor="transparent" rankdir=LR]
-  node [style="filled" fontcolor="white" fontsize=20]
-
-  {
-    node[shape="circle" fillcolor="#e66101"]
-    A -> B
-  }
-
-  {
-    node[shape="rect" fillcolor="#0571b0"]
-    origin_master[label="source/master"]
-    master[label="main"]
-  }
-
-  {
-    rank="same"
-    origin_master -> B
-    B -> master [dir="back"]
-  }
-}
-```
-</section>
-
-<section>
-
-```graphviz
-digraph {
-  graph[bgcolor="transparent" rankdir=LR]
-  node [style="filled" fontcolor="white" fontsize=20]
-
-  {
-    node[shape="circle" fillcolor="#e66101"]
-    A -> B -> C
-  }
-
-  {
-    node[shape="rect" fillcolor="#0571b0"]
-    rank="same"
-    master -> C
-  }
-}
-```
-
-```shell
-...
-```
-
-```graphviz
-digraph {
-  graph[bgcolor="transparent" rankdir=LR fontname="Arial"]
-  node [style="filled" fontcolor="white" fontsize=20]
-
-  {
-    node[shape="rect" fillcolor="#0571b0"]
-    origin_master[label="source/master"]
-    master[label="main"]
-  }
-
-  {
-    node[shape="circle" fillcolor="#e66101"]
-    A -> B -> D
-  }
-
-
-  {
-    rank="same"
-    origin_master -> B
-  }
-
-  {
-    rank="same"
-    D -> master [dir="back"]
-  }
-}
-```
-</section>
-
-<section>
-
-```graphviz
-digraph {
-  graph[bgcolor="transparent" rankdir=LR]
-  node [style="filled" fontcolor="white" fontsize=20]
-
-  {
-    node[shape="circle" fillcolor="#e66101"]
-    A -> B -> C
-  }
-
-  {
-    node[shape="rect" fillcolor="#0571b0"]
-    rank="same"
-    master -> C
-  }
-}
-```
-
-```shell
-git fetch source
-```
-
-```graphviz
-digraph {
-  graph[bgcolor="transparent" rankdir=LR]
-  node [style="filled" fontcolor="white" fontsize=20]
-
-  {
-    node[shape="rect" fillcolor="#0571b0"]
-    origin_master[label="source/master"]
-    master[label="main"]
-  }
-
-  {
-    node[shape="circle" fillcolor="#e66101"]
-    A -> B -> C
-    B -> D
-  }
-
-
-  {
-    rank="same"
-    origin_master -> C
-  }
-
-  {
-    rank="same"
-    D -> master [dir="back"]
-  }
-}
-```
-</section>
-
-
-<section>
-
-```graphviz
-digraph {
-  graph[bgcolor="transparent" rankdir=LR]
-  node [style="filled" fontcolor="white" fontsize=20]
-
-  {
-    node[shape="circle" fillcolor="#e66101"]
-    A -> B -> C
-  }
-
-  {
-    node[shape="rect" fillcolor="#0571b0"]
-    rank="same"
-    master -> C
-  }
-}
-```
-
-```shell
-git merge source/master
-git pull source
-```
-
-```graphviz
-digraph {
-  graph[bgcolor="transparent" rankdir=LR]
-  node [style="filled" fontcolor="white" fontsize=20]
-
-  {
-    node[shape="rect" fillcolor="#0571b0"]
-    origin_master[label="source/master"]
-    master[label="main"]
-  }
-
-  {
-    node[shape="circle" fillcolor="#e66101"]
-    A -> B -> C
-    B -> D
-    {C D} -> E
-  }
-
-  {
-    rank="same"
-    origin_master -> C
-  }
-
-  {
-    rank="same"
-    E -> master [dir="back"]
-  }
-}
-```
-</section>
-
-<section>
-
-```shell
-source:destination
-git push origin :topic
-```
-
-</section>
-</section>
-
-<section>
-# Git
-
-## Part 1
-</section>
-
-<section>
-# Init
-
-<section>
-Первоначальная настройка **Git**
-
-```shell
-git config --global user.name "Nikolay Rozhkov"
-git config --global user.email rozhkov@uchi.ru
-```
-</section>
-
-<section>
-Инициализировать новый проект c **Git**
-
-```bash
-git init new-project
-```
-
-Добавить существуй проект в **Git**
-
-```bash
-cd existing-project
-git init
-git init .
-```
-</section>
-</section>
-
-<section>
-# Staging
-
-<section>
-## Add
-
-```shell
-git add .
-```
-
-## Reset
-```shell
-git reset
-```
-</section>
-
-<section>
-## Remove
-
-```shell
-git rm
-git add -A
-git add --all
-```
-</section>
-
-<section>
-## Commit
-
-```shell
-git status
-git commit
-```
-
-```shell
-git commit -m 'Here goes message'
-```
-</section>
-
-<section>
-![Staging](assets/staging.svg)
-</section>
-</section>
-
-<section>
-# Undo
-
-Изменение последнего коммита
-
-```shell
-git commit --amend
-```
-
-Отмена изменений файла
-
-```shell
-git checkout -- hello.txt
-```
-
-</section>
-
-<section>
 # Branches
 
 <section>
@@ -647,6 +303,428 @@ digraph {
 }
 ```
 </section>
+
+<section>
+
+```
+git checkout feature && git rebase master
+```
+
+```graphviz
+digraph {
+  graph[splines=false fontname="Arial" bgcolor="transparent" rankdir=LR]
+  node [style="filled" fontcolor="white" fontsize=20]
+
+  subgraph nodes {
+    node [shape="circle"]
+    {
+      node [color="#e66101" fillcolor="#e66101"]
+      B C
+    }
+    {
+      node [color="#5e3c99" fillcolor="#5e3c99"]
+      D E
+    }
+    {
+      node [color="#5e3c99" penwidth=2 fontcolor="#5e3c99" fillcolor="#5e3c99" style=dashed]
+      "D'" "E'"
+    }
+    {
+      node [color="#018571" fillcolor="#018571"]
+      G
+    }
+    {
+      node [color="#e66101" fillcolor="#e66101"]
+    }
+    F [style="invisible"]
+  }
+
+  subgraph labels {
+    node [shape="rect"]
+    {
+      node[color="#4dac26" fillcolor="#4dac26"]
+      HEAD
+    }
+
+    {
+      node[color="#0571b0" fillcolor="#0571b0"]
+      master feature "feature'"
+    }
+  }
+
+  { B -> C }
+  { C -> D -> E }
+  { E -> F [style=invis] }
+  { C -> G -> "D'" -> "E'" }
+
+  {
+    rank = same
+    D -> G [style=invis]
+    G -> master
+  }
+
+  {
+    rank = same
+    HEAD -> feature -> E
+    E -> "D'" [style=invis]
+  }
+
+  {
+    rank = same
+    F "E'" -> "feature'"[dir="back"]
+  }
+
+  D -> "D'"
+  E -> "E'"
+
+}
+```
+</section>
+
+</section>
+
+<section>
+# Remotes
+
+<section>
+
+```shell
+git init uchi && cd ..
+```
+
+<pre><code class="hljs nohighlight">git clone uchi<span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;"> -o source</span> local
+cd local<span class="fragment fade-up" data-fragment-index="1" style="color: #5e3c99"> && git branch -m main</span>
+<span class="fragment fade-up" data-fragment-index="2" style="color: #e66101">git br main --unset-upstream</span>
+cat .git/config</code></pre>
+
+<pre><code class="hljs nohighlight">[remote "<span class="fragment fade-out" data-fragment-index="0">origin</span><span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;">source</span>"]
+  url = /tmp/uchi
+  fetch = +refs/heads/*:refs/remotes/<span class="fragment fade-out" data-fragment-index="0">origin</span><span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;">source</span>/*
+[branch "<span class="fragment fade-out" data-fragment-index="1">master</span><span class="fragment fade-up" data-fragment-index="1" style="color: #5e3c99">main</span>"]
+  <span class="fragment fade-out" data-fragment-index="2">remote = <span class="fragment fade-out" data-fragment-index="0">origin</span><span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;">source</span>
+  merge = refs/heads/master</code></pre></span>
+
+</section>
+
+<section>
+
+```graphviz
+digraph {
+  graph[bgcolor="transparent" rankdir=LR]
+  node [style="filled" fontcolor="white" fontsize=20]
+
+  {
+    node[shape="circle" fillcolor="#e66101"]
+    A -> B
+  }
+
+  {
+    node[shape="rect" fillcolor="#0571b0"]
+    rank="same"
+    master -> B
+  }
+}
+```
+
+```
+git clone uchi -o source local
+```
+
+```graphviz
+digraph {
+  graph[bgcolor="transparent" rankdir=LR]
+  node [style="filled" fontcolor="white" fontsize=20]
+
+  {
+    node[shape="circle" fillcolor="#e66101"]
+    A -> B
+  }
+
+  {
+    node[shape="rect" fillcolor="#0571b0"]
+    origin_master[label="source/master"]
+    master[label="main"]
+  }
+
+  {
+    rank="same"
+    origin_master -> B
+    B -> master [dir="back"]
+  }
+}
+```
+</section>
+
+<section>
+
+```graphviz
+digraph {
+  graph[bgcolor="transparent" rankdir=LR]
+  node [style="filled" fontcolor="white" fontsize=20]
+
+  {
+    node[shape="circle" fillcolor="#e66101"]
+    A -> B -> C
+  }
+
+  {
+    node[shape="rect" fillcolor="#0571b0"]
+    rank="same"
+    master -> C
+  }
+}
+```
+
+```shell
+...
+```
+
+```graphviz
+digraph {
+  graph[bgcolor="transparent" rankdir=LR fontname="Arial"]
+  node [style="filled" fontcolor="white" fontsize=20]
+
+  {
+    node[shape="rect" fillcolor="#0571b0"]
+    origin_master[label="source/master"]
+    master[label="main"]
+  }
+
+  {
+    node[shape="circle" fillcolor="#e66101"]
+    A -> B -> D
+  }
+
+
+  {
+    rank="same"
+    origin_master -> B
+  }
+
+  {
+    rank="same"
+    D -> master [dir="back"]
+  }
+}
+```
+</section>
+
+<section>
+
+```graphviz
+digraph {
+  graph[bgcolor="transparent" rankdir=LR]
+  node [style="filled" fontcolor="white" fontsize=20]
+
+  {
+    node[shape="circle" fillcolor="#e66101"]
+    A -> B -> C
+  }
+
+  {
+    node[shape="rect" fillcolor="#0571b0"]
+    rank="same"
+    master -> C
+  }
+}
+```
+
+```shell
+git fetch source
+```
+
+```graphviz
+digraph {
+  graph[bgcolor="transparent" rankdir=LR]
+  node [style="filled" fontcolor="white" fontsize=20]
+
+  {
+    node[shape="rect" fillcolor="#0571b0"]
+    origin_master[label="source/master"]
+    master[label="main"]
+  }
+
+  {
+    node[shape="circle" fillcolor="#e66101"]
+    A -> B -> C
+    B -> D
+  }
+
+
+  {
+    rank="same"
+    origin_master -> C
+  }
+
+  {
+    rank="same"
+    D -> master [dir="back"]
+  }
+}
+```
+</section>
+
+
+<section>
+
+```graphviz
+digraph {
+  graph[bgcolor="transparent" rankdir=LR]
+  node [style="filled" fontcolor="white" fontsize=20]
+
+  {
+    node[shape="circle" fillcolor="#e66101"]
+    A -> B -> C
+  }
+
+  {
+    node[shape="rect" fillcolor="#0571b0"]
+    rank="same"
+    master -> C
+  }
+}
+```
+
+```shell
+git fetch && git merge source/master
+git pull source
+```
+
+```graphviz
+digraph {
+  graph[bgcolor="transparent" rankdir=LR]
+  node [style="filled" fontcolor="white" fontsize=20]
+
+  {
+    node[shape="rect" fillcolor="#0571b0"]
+    origin_master[label="source/master"]
+    master[label="main"]
+  }
+
+  {
+    node[shape="circle" fillcolor="#e66101"]
+    A -> B -> C
+    B -> D
+    {C D} -> E
+  }
+
+  {
+    rank="same"
+    origin_master -> C
+  }
+
+  {
+    rank="same"
+    E -> master [dir="back"]
+  }
+}
+```
+</section>
+
+<section>
+
+```shell
+source:destination
+git push origin :topic
+git push origin --delete topic
+```
+
+</section>
+</section>
+
+<section>
+# Git
+
+## Part 1
+</section>
+
+<section>
+# Init
+
+<section>
+Первоначальная настройка **Git**
+
+```shell
+git config --global user.name "Nikolay Rozhkov"
+git config --global user.email rozhkov@uchi.ru
+```
+</section>
+
+<section>
+Инициализировать новый проект c **Git**
+
+```bash
+git init new-project
+```
+
+Добавить существуй проект в **Git**
+
+```bash
+cd existing-project
+git init
+git init .
+```
+</section>
+</section>
+
+<section>
+# Staging
+
+<section>
+## Add
+
+```shell
+git add .
+```
+
+## Reset
+```shell
+git reset
+```
+</section>
+
+<section>
+## Remove
+
+```shell
+git rm
+git add -A
+git add --all
+```
+</section>
+
+<section>
+## Commit
+
+```shell
+git status
+git commit
+```
+
+```shell
+git commit -m 'Here goes message'
+```
+</section>
+
+<section>
+![Staging](assets/staging.svg)
+</section>
+</section>
+
+<section>
+# Undo
+
+Изменение последнего коммита
+
+```shell
+git commit --amend
+```
+
+Отмена изменений файла
+
+```shell
+git checkout -- hello.txt
+```
 
 </section>
 

@@ -302,3 +302,80 @@ digraph {
 }
 ```
 </section>
+
+<section>
+
+```
+git checkout feature && git rebase master
+```
+
+```graphviz
+digraph {
+  graph[splines=false fontname="Arial" bgcolor="transparent" rankdir=LR]
+  node [style="filled" fontcolor="white" fontsize=20]
+
+  subgraph nodes {
+    node [shape="circle"]
+    {
+      node [color="#e66101" fillcolor="#e66101"]
+      B C
+    }
+    {
+      node [color="#5e3c99" fillcolor="#5e3c99"]
+      D E
+    }
+    {
+      node [color="#5e3c99" penwidth=2 fontcolor="#5e3c99" fillcolor="#5e3c99" style=dashed]
+      "D'" "E'"
+    }
+    {
+      node [color="#018571" fillcolor="#018571"]
+      G
+    }
+    {
+      node [color="#e66101" fillcolor="#e66101"]
+    }
+    F [style="invisible"]
+  }
+
+  subgraph labels {
+    node [shape="rect"]
+    {
+      node[color="#4dac26" fillcolor="#4dac26"]
+      HEAD
+    }
+
+    {
+      node[color="#0571b0" fillcolor="#0571b0"]
+      master feature "feature'"
+    }
+  }
+
+  { B -> C }
+  { C -> D -> E }
+  { E -> F [style=invis] }
+  { C -> G -> "D'" -> "E'" }
+
+  {
+    rank = same
+    D -> G [style=invis]
+    G -> master
+  }
+
+  {
+    rank = same
+    HEAD -> feature -> E
+    E -> "D'" [style=invis]
+  }
+
+  {
+    rank = same
+    F "E'" -> "feature'"[dir="back"]
+  }
+
+  D -> "D'"
+  E -> "E'"
+
+}
+```
+</section>
