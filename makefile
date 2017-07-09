@@ -40,12 +40,11 @@ sources: $(MD_TARGETS)
 #$(DOT_TARGETS)
 
 SLIDES = $(shell find \
-	$(SOURCE_DIR)/branch.md \
-	$(SOURCE_DIR)/remotes.md \
 	$(SOURCE_DIR)/part-1.md \
 	$(SOURCE_DIR)/init.md \
 	$(SOURCE_DIR)/staging.md \
-	$(SOURCE_DIR)/undo.md \
+	$(SOURCE_DIR)/branch.md \
+	$(SOURCE_DIR)/remotes.md \
 	$(SOURCE_DIR)/part-2.md \
 	$(SOURCE_DIR)/checkout.md \
 	$(SOURCE_DIR)/revisions.md \

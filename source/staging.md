@@ -37,5 +37,21 @@ git commit -m 'Here goes message'
 </section>
 
 <section>
+## Undo
+
+Изменение последнего коммита
+
+```shell
+git commit --amend
+```
+
+Отмена изменений файла
+
+```shell
+git checkout -- hello.txt
+```
+</section>
+
+<section>
 ![Staging](assets/staging.svg)
 </section>

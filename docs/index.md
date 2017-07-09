@@ -1,4 +1,112 @@
 <section>
+# Git
+
+## Part 1
+</section>
+
+<section>
+<section>
+# Configuring
+
+Первоначальная настройка **Git**
+
+```shell
+git config --global user.name "Nikolay Rozhkov"
+git config --global user.email rozhkov@uchi.ru
+```
+
+External **diff**
+
+```ini
+[diff]
+  tool = meld
+[difftool]
+  path = meld
+  prompt = false
+```
+</section>
+
+<section>
+# Init
+
+Инициализировать новый проект c **Git**
+
+```bash
+git init new-project
+git init new-project --bare
+```
+
+Добавить существуй проект в **Git**
+
+```shell
+cd existing-project
+git init
+git init .
+```
+</section>
+</section>
+
+<section>
+# Staging
+
+<section>
+## Add
+
+```shell
+git add .
+```
+
+## Reset
+```shell
+git reset
+```
+</section>
+
+<section>
+## Remove
+
+```shell
+git rm
+git add -A
+git add --all
+```
+</section>
+
+<section>
+## Commit
+
+```shell
+git status
+git commit
+```
+
+```shell
+git commit -m 'Here goes message'
+```
+</section>
+
+<section>
+## Undo
+
+Изменение последнего коммита
+
+```shell
+git commit --amend
+```
+
+Отмена изменений файла
+
+```shell
+git checkout -- hello.txt
+```
+</section>
+
+<section>
+![Staging](assets/staging.svg)
+</section>
+</section>
+
+<section>
 # Branches
 
 <section>
@@ -343,7 +451,7 @@ digraph {
     node [shape="rect"]
     {
       node[color="#4dac26" fillcolor="#4dac26"]
-      HEAD
+      HEAD "HEAD'"
     }
 
     {
@@ -371,7 +479,7 @@ digraph {
 
   {
     rank = same
-    F "E'" -> "feature'"[dir="back"]
+    F "E'" -> "feature'" -> "HEAD'"[dir="back"]
   }
 
   D -> "D'"
@@ -630,102 +738,6 @@ git push origin --delete topic
 ```
 
 </section>
-</section>
-
-<section>
-# Git
-
-## Part 1
-</section>
-
-<section>
-# Init
-
-<section>
-Первоначальная настройка **Git**
-
-```shell
-git config --global user.name "Nikolay Rozhkov"
-git config --global user.email rozhkov@uchi.ru
-```
-</section>
-
-<section>
-Инициализировать новый проект c **Git**
-
-```bash
-git init new-project
-```
-
-Добавить существуй проект в **Git**
-
-```bash
-cd existing-project
-git init
-git init .
-```
-</section>
-</section>
-
-<section>
-# Staging
-
-<section>
-## Add
-
-```shell
-git add .
-```
-
-## Reset
-```shell
-git reset
-```
-</section>
-
-<section>
-## Remove
-
-```shell
-git rm
-git add -A
-git add --all
-```
-</section>
-
-<section>
-## Commit
-
-```shell
-git status
-git commit
-```
-
-```shell
-git commit -m 'Here goes message'
-```
-</section>
-
-<section>
-![Staging](assets/staging.svg)
-</section>
-</section>
-
-<section>
-# Undo
-
-Изменение последнего коммита
-
-```shell
-git commit --amend
-```
-
-Отмена изменений файла
-
-```shell
-git checkout -- hello.txt
-```
-
 </section>
 
 <section>

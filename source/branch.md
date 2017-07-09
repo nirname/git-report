@@ -342,7 +342,7 @@ digraph {
     node [shape="rect"]
     {
       node[color="#4dac26" fillcolor="#4dac26"]
-      HEAD
+      HEAD "HEAD'"
     }
 
     {
@@ -370,7 +370,7 @@ digraph {
 
   {
     rank = same
-    F "E'" -> "feature'"[dir="back"]
+    F "E'" -> "feature'" -> "HEAD'"[dir="back"]
   }
 
   D -> "D'"
