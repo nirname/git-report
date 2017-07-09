@@ -4,18 +4,17 @@
 <section>
 
 <pre><code class="hljs nohighlight">git init uchi
-git clone uchi<span class="fragment fade-up" data-fragment-index="1" style="color: #329222;"> -o source</span> local
-cd local <span class="fragment fade-up" data-fragment-index="1" style="color: #329222;">&& git branch -m main</span>
+git clone uchi<span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;"> -o source</span> local
+cd local<span class="fragment fade-up" data-fragment-index="1" style="color: #5e3c99"> && git branch -m main</span>
 cat .git/config</code></pre>
 
-```ini
-[remote "source"]
+<pre><code class="hljs nohighlight">[remote "<span class="fragment fade-out" data-fragment-index="0">origin</span><span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;">source</span>"]
   url = /tmp/uchi
-  fetch = +refs/heads/*:refs/remotes/source/*
-[branch "main"]
-  remote = source
-  merge = refs/heads/master
-```
+  fetch = +refs/heads/*:refs/remotes/<span class="fragment fade-out" data-fragment-index="0">origin</span><span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;">source</span>/*
+[branch "<span class="fragment fade-out" data-fragment-index="1">master</span><span class="fragment fade-up" data-fragment-index="1" style="color: #5e3c99">main</span>"]
+  remote = <span class="fragment fade-out" data-fragment-index="0">origin</span><span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;">source</span>
+  merge = refs/heads/master</code></pre>
+
 </section>
 
 <section>
