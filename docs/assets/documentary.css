@@ -13,3 +13,7 @@ body, .deck-container {
 img {
   border: none !important;
 }
+
+.fragment:not(.visible) {
+  display: none !important;
+}
