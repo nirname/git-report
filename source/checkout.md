@@ -1,19 +1,8 @@
 # CHECKOUT
 
 <section>
-### Resolve conflicts
-```
-git merge feature
-```
+**Resolve conflicts**
 
-```
-git checkout --ours file.txt # master
-git checkout --theirs file.txt # feature
-```
-</section>
-
-<section>
-### Resolve conflicts
 ```
 git rebase master
 git pull --rebase
@@ -26,7 +15,8 @@ git checkout --theirs file.txt # master
 </section>
 
 <section>
-### Detached
+**Detached**
+
 ```
 git checkout 26c0aa12792e6344f5
 ```

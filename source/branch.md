@@ -342,12 +342,21 @@ digraph {
     node [shape="rect"]
     {
       node[color="#4dac26" fillcolor="#4dac26"]
-      HEAD "HEAD'"
+      HEAD
+    }
+
+    {
+      node[color="#4dac26" fillcolor="#4dac26" fontcolor="#4dac26" style=dashed penwidth=2]
+      "HEAD'"
     }
 
     {
       node[color="#0571b0" fillcolor="#0571b0"]
-      master feature "feature'"
+      master feature
+    }
+    {
+      node[color="#0571b0" fillcolor="#0571b0" fontcolor="#0571b0" style=dashed penwidth=2]
+      "feature'"
     }
   }
 
@@ -359,7 +368,7 @@ digraph {
   {
     rank = same
     D -> G [style=invis]
-    G -> master
+    G -> master [dir=back]
   }
 
   {
@@ -375,6 +384,152 @@ digraph {
 
   D -> "D'"
   E -> "E'"
+
+}
+```
+</section>
+
+<section>
+
+```shell
+git cherry-pick cc9a7b9
+```
+
+```graphviz
+digraph {
+  graph[splines=false fontname="Arial" bgcolor="transparent" rankdir=LR]
+  node [style="filled" fontcolor="white" fontsize=20]
+
+  subgraph nodes {
+    node [shape="circle"]
+    {
+      node [color="#e66101" fillcolor="#e66101"]
+      C
+    }
+    {
+      node [color="#5e3c99" fillcolor="#5e3c99"]
+      D
+    }
+    {
+      node [color="#8E8E8E" fillcolor="#8E8E8E"]
+      E
+    }
+    {
+      node [color="#5e3c99" penwidth=2 fontcolor="#5e3c99" fillcolor="#5e3c99" style=dashed]
+      "D'"
+    }
+    {
+      node [color="#018571" fillcolor="#018571"]
+      G
+    }
+    {
+      node [color="#e66101" fillcolor="#e66101"]
+    }
+  }
+
+  subgraph labels {
+    node [shape="rect"]
+    {
+      node[color="#4dac26" fillcolor="#4dac26"]
+      HEAD
+    }
+
+    {
+      node[color="#0571b0" fillcolor="#0571b0"]
+      master feature
+    }
+    {
+      node[color="#0571b0" fillcolor="#0571b0" style=dashed fontcolor="#0571b0" penwidth=2]
+      "master'"
+    }
+  }
+
+  { C -> D -> E }
+  { C -> G -> "D'" }
+
+  {
+    rank = same
+    D -> G [style=invis]
+    G -> master [dir=back]
+  }
+
+  {
+    rank = same
+    HEAD -> feature -> E
+    E -> "D'" [style=invis]
+  }
+
+  D -> "D'"
+  {
+    rank = same
+    "D'" -> "master'" [dir=back]
+  }
+
+}
+```
+</section>
+
+<section>
+**Revert**
+
+
+```shell
+git revert HEAD~1
+```
+
+```graphviz
+digraph {
+  graph[splines=false fontname="Arial" bgcolor="transparent" rankdir=LR]
+  node [style="filled" fontcolor="white" fontsize=20]
+
+  subgraph nodes {
+    node [shape="circle"]
+    {
+      node [color="#e66101" fillcolor="#e66101"]
+      A C
+    }
+    {
+      node [color="#5e3c99" fillcolor="#5e3c99"]
+      B
+    }
+    {
+      node [color="#5e3c99" penwidth=2 fontcolor="#5e3c99" fillcolor="#5e3c99" style=dashed]
+      "-B"
+    }
+  }
+
+  subgraph labels {
+    node [shape="rect"]
+    {
+      node[color="#4dac26" fillcolor="#4dac26"]
+      HEAD
+    }
+    {
+      node[color="#4dac26" fillcolor="#4dac26" fontcolor="#4dac26" fillcolor="#4dac26" style=dashed]
+      "HEAD'"
+    }
+    {
+      node[color="#0571b0" fillcolor="#0571b0"]
+      feature
+    }
+    {
+      node[color="#0571b0" fillcolor="#0571b0" fontcolor="#0571b0" fillcolor="#0571b0" style=dashed]
+      "feature'"
+    }
+  }
+
+  A -> B -> C -> "-B"
+  B:ne -> "-B":nw
+
+  {
+    rank = same
+    C -> feature -> HEAD [dir=back]
+  }
+
+  {
+    rank = same
+    "-B" -> "feature'" -> "HEAD'" [dir=back]
+  }
 
 }
 ```

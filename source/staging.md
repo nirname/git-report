@@ -1,20 +1,17 @@
 # Staging
 
 <section>
-## Add
+**Add**
 
 ```shell
 git add .
 ```
 
-## Reset
+**Reset**
 ```shell
 git reset
 ```
-</section>
-
-<section>
-## Remove
+**Remove**
 
 ```shell
 git rm

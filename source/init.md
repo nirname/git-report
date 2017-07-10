@@ -1,5 +1,5 @@
-<section>
 # Configuring
+<section>
 
 Первоначальная настройка **Git**
 
@@ -7,7 +7,9 @@
 git config --global user.name "Nikolay Rozhkov"
 git config --global user.email rozhkov@uchi.ru
 ```
+</section>
 
+<section>
 External **diff**
 
 ```ini
@@ -17,10 +19,16 @@ External **diff**
   path = meld
   prompt = false
 ```
+External **editor**
+
+```ini
+[core]
+  editor = subl -n -w
+```
 </section>
 
 <section>
-# Init
+**Init**
 
 Инициализировать новый проект c **Git**
 

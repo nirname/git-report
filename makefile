@@ -40,6 +40,7 @@ sources: $(MD_TARGETS)
 #$(DOT_TARGETS)
 
 SLIDES = $(shell find \
+	$(SOURCE_DIR)/sandbox.md \
 	$(SOURCE_DIR)/part-1.md \
 	$(SOURCE_DIR)/init.md \
 	$(SOURCE_DIR)/staging.md \
