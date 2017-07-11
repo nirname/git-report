@@ -1,6 +1,26 @@
 # Branches
 
 <section>
+Создание ветки
+
+```shell
+git branch feature
+```
+
+Переключение
+
+```shell
+git checkout feature
+```
+
+Сокращённо
+
+```shell
+git checkout -b feature
+```
+</section>
+
+<section>
 Список веток
 
 ```shell
@@ -35,26 +55,6 @@ digraph {
     C -> master -> HEAD [dir="back"]
   }
 }
-```
-</section>
-
-<section>
-Создание ветки
-
-```shell
-git branch feature
-```
-
-Переключение
-
-```shell
-git checkout feature
-```
-
-Сокращённо
-
-```shell
-git checkout -b feature
 ```
 </section>
 
