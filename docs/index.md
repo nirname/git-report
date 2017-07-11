@@ -20,6 +20,14 @@
 git config --global user.name "Nikolay Rozhkov"
 git config --global user.email rozhkov@uchi.ru
 ```
+
+Внешиние утилиты
+
+```
+git config --global diff.tool meld
+git config --global difftool.prompt false
+git config --global core.editor /usr/bin/vim
+```
 </section>
 
 <section>
@@ -36,7 +44,7 @@ External **editor**
 
 ```ini
 [core]
-  editor = subl -n -w
+  editor = /usr/bin/vim
 ```
 </section>
 
@@ -144,7 +152,7 @@ git checkout -b feature
 Список веток
 
 ```shell
-$ git branch
+$ git branch --all
 * master
 ```
 
@@ -625,7 +633,7 @@ digraph {
       HEAD
     }
     {
-      node[color="#4dac26" fillcolor="#4dac26" fontcolor="#4dac26" fillcolor="#4dac26" style=dashed]
+      node[color="#4dac26" fillcolor="#4dac26" fontcolor="#4dac26" fillcolor="#4dac26" style=dashed penwidth=2]
       "HEAD'"
     }
     {
@@ -633,7 +641,7 @@ digraph {
       feature
     }
     {
-      node[color="#0571b0" fillcolor="#0571b0" fontcolor="#0571b0" fillcolor="#0571b0" style=dashed]
+      node[color="#0571b0" fillcolor="#0571b0" fontcolor="#0571b0" fillcolor="#0571b0" style=dashed penwidth=2]
       "feature'"
     }
   }
@@ -654,6 +662,31 @@ digraph {
 }
 ```
 </section>
+
+<section>
+**Interactive Rebase**
+
+```
+git co -b before-rebase
+for i in `seq 10 30`; do echo $i > $i && git add . && git cm -m$i ; done
+git co -b after-rebase
+git rebase -i HEAD~21 # master
+```
+
+```
+# Rebase cc9a7b9..10cf5fa onto cc9a7b9 (21 command(s))
+#
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup = like "squash", but discard this commit's log message
+# x, exec = run command (the rest of the line) using shell
+# d, drop = remove commit
+```
+</section>
+
 
 </section>
 

@@ -7,6 +7,14 @@
 git config --global user.name "Nikolay Rozhkov"
 git config --global user.email rozhkov@uchi.ru
 ```
+
+Внешиние утилиты
+
+```
+git config --global diff.tool meld
+git config --global difftool.prompt false
+git config --global core.editor /usr/bin/vim
+```
 </section>
 
 <section>
@@ -23,7 +31,7 @@ External **editor**
 
 ```ini
 [core]
-  editor = subl -n -w
+  editor = /usr/bin/vim
 ```
 </section>
 

@@ -33,6 +33,10 @@
 <p>Первоначальная настройка <strong>Git</strong></p>
 <pre class="shell"><code>git config --global user.name &quot;Nikolay Rozhkov&quot;
 git config --global user.email rozhkov@uchi.ru</code></pre>
+<p>Внешиние утилиты</p>
+<pre><code>git config --global diff.tool meld
+git config --global difftool.prompt false
+git config --global core.editor /usr/bin/vim</code></pre>
 </section>
 <section>
 <p>External <strong>diff</strong></p>
@@ -43,7 +47,7 @@ git config --global user.email rozhkov@uchi.ru</code></pre>
 <span class="dt">  prompt </span><span class="ot">=</span><span class="st"> </span><span class="kw">false</span></code></pre></div>
 <p>External <strong>editor</strong></p>
 <div class="sourceCode"><pre class="sourceCode ini"><code class="sourceCode ini"><span class="kw">[core]</span>
-<span class="dt">  editor </span><span class="ot">=</span><span class="st"> subl -n -w</span></code></pre></div>
+<span class="dt">  editor </span><span class="ot">=</span><span class="st"> /usr/bin/vim</span></code></pre></div>
 </section>
 <section>
 <p><strong>Init</strong></p>
@@ -97,7 +101,7 @@ git commit</code></pre>
 </section>
 <section>
 <p>Список веток</p>
-<pre class="shell"><code>$ git branch
+<pre class="shell"><code>$ git branch --all
 * master</code></pre>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -957,7 +961,7 @@ git merge --no-ff feature</code></pre>
 </g>
 <!-- feature&#39; -->
 <g id="node8" class="node"><title>feature&#39;</title>
-<polygon fill="none" stroke="#0571b0" stroke-dasharray="5,2" points="339.28,-102 264.057,-102 264.057,-66 339.28,-66 339.28,-102"/>
+<polygon fill="none" stroke="#0571b0" stroke-width="2" stroke-dasharray="5,2" points="339.28,-102 264.057,-102 264.057,-66 339.28,-66 339.28,-102"/>
 <text text-anchor="middle" x="301.668" y="-78" font-family="Times,serif" font-size="20.00" fill="#0571b0">feature&#39;</text>
 </g>
 <!-- &#45;B&#45;&gt;feature&#39; -->
@@ -972,7 +976,7 @@ git merge --no-ff feature</code></pre>
 </g>
 <!-- HEAD&#39; -->
 <g id="node6" class="node"><title>HEAD&#39;</title>
-<polygon fill="none" stroke="#4dac26" stroke-dasharray="5,2" points="339.319,-48 264.018,-48 264.018,-12 339.319,-12 339.319,-48"/>
+<polygon fill="none" stroke="#4dac26" stroke-width="2" stroke-dasharray="5,2" points="339.319,-48 264.018,-48 264.018,-12 339.319,-12 339.319,-48"/>
 <text text-anchor="middle" x="301.668" y="-24" font-family="Times,serif" font-size="20.00" fill="#4dac26">HEAD&#39;</text>
 </g>
 <!-- feature&#45;&gt;HEAD -->
@@ -988,6 +992,23 @@ git merge --no-ff feature</code></pre>
 </g>
 </svg>
 
+</section>
+<section>
+<p><strong>Interactive Rebase</strong></p>
+<pre><code>git co -b before-rebase
+for i in `seq 10 30`; do echo $i &gt; $i &amp;&amp; git add . &amp;&amp; git cm -m$i ; done
+git co -b after-rebase
+git rebase -i HEAD~21 # master</code></pre>
+<pre><code># Rebase cc9a7b9..10cf5fa onto cc9a7b9 (21 command(s))
+#
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup = like &quot;squash&quot;, but discard this commit&#39;s log message
+# x, exec = run command (the rest of the line) using shell
+# d, drop = remove commit</code></pre>
 </section>
 </section>
 <section>
