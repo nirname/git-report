@@ -932,17 +932,17 @@ digraph {
 <section>
 **Notation**
 
-```shell
+```ini
 my_branch:remote_branch
 ```
 
 **Uptrack**
-```
+```shell
 git push -u source feature
 ```
 
 **Delete**
-```
+```shell
 git push source :topic
 git push source --delete topic
 ```
