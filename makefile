@@ -45,6 +45,7 @@ SLIDES = $(shell find \
 	$(SOURCE_DIR)/init.md \
 	$(SOURCE_DIR)/staging.md \
 	$(SOURCE_DIR)/branch.md \
+	$(SOURCE_DIR)/rewrite.md \
 	$(SOURCE_DIR)/remotes.md \
 	$(SOURCE_DIR)/part-2.md \
 	$(SOURCE_DIR)/checkout.md \

@@ -240,7 +240,7 @@ digraph {
 **Notation**
 
 ```ini
-my_branch:remote_branch
+local-branch:remote-branch
 ```
 
 **Uptrack**
