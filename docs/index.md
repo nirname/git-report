@@ -933,11 +933,19 @@ digraph {
 **Notation**
 
 ```shell
-source:destination
-git push origin :topic
-git push origin --delete topic
+my_branch:remote_branch
 ```
 
+**Uptrack**
+```
+git push -u source feature
+```
+
+**Delete**
+```
+git push source :topic
+git push source --delete topic
+```
 </section>
 </section>
 

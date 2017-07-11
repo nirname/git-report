@@ -1482,9 +1482,12 @@ git pull source</code></pre>
 </section>
 <section>
 <p><strong>Notation</strong></p>
-<pre class="shell"><code>source:destination
-git push origin :topic
-git push origin --delete topic</code></pre>
+<pre class="shell"><code>my_branch:remote_branch</code></pre>
+<p><strong>Uptrack</strong></p>
+<pre><code>git push -u source feature</code></pre>
+<p><strong>Delete</strong></p>
+<pre><code>git push source :topic
+git push source --delete topic</code></pre>
 </section>
 </section>
 <section>
