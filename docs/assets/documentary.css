@@ -21,3 +21,19 @@ img {
 .fragment.fade-out.visible {
   display: none !important;
 }
+
+.bad-rule:before {
+  content: "\2716  ";
+}
+
+.bad-rule {
+  color: #d7191c;
+}
+
+.ok-rule:before {
+  content: "\2714  ";
+}
+
+.ok-rule {
+  color: #1a9641;
+}

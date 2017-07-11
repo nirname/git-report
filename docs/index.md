@@ -1,13 +1,33 @@
 <section>
-# Sandbox
+<section>
+# Rules
 
+<pre><code class="hljs nohighlight">
+<span class="fragment fade-out" data-fragment-index="0">git push -f</span><span class="fragment fade-up bad-rule" data-fragment-index="0">git push -f</span>
+<span class="fragment fade-out" data-fragment-index="1">git push && git rebase</span><span class="fragment fade-up bad-rule" data-fragment-index="1">git push && git rebase</span>
+<span class="fragment fade-out" data-fragment-index="2">git pull --rebase</span><span class="fragment fade-up ok-rule" data-fragment-index="2">git pull --rebase</span>
+</code></pre>
 
 </section>
 
 <section>
-# Git
+# Debugging
 
-## Part 1
+**Bisect**
+
+```
+git bisect start
+git bisect bad
+git bisect good master
+```
+
+```
+git bisect start HEAD master
+git bisect run test -f hello.txt
+```
+</section>
+
+
 </section>
 
 <section>
@@ -712,7 +732,7 @@ cat .git/config</code></pre>
 [branch "<span class="fragment fade-out" data-fragment-index="1">master</span><span class="fragment fade-up" data-fragment-index="1" style="color: #5e3c99">main</span>"]
   <span class="fragment fade-out" data-fragment-index="2">remote = <span class="fragment fade-out" data-fragment-index="0">origin</span><span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;">source</span>
   merge = refs/heads/master</span><span class="fragment fade-up" data-fragment-index="3" style="color: #0571b0">remote = source
-  merge = refs/heads/master</span></code></pre></span>
+  merge = refs/heads/master</span></span></code></pre>
 
 </section>
 
@@ -952,12 +972,6 @@ git push source --delete topic
 </section>
 
 <section>
-# Git
-
-## Part 2
-</section>
-
-<section>
 # CHECKOUT
 
 <section>
@@ -1190,6 +1204,29 @@ digraph revisions {
 }
 ```
 
+</section>
+</section>
+
+<section>
+<section>
+# Debugging
+
+**Bisect**
+
+```
+git bisect start
+git bisect bad
+git bisect good master
+```
+
+```
+git bisect start HEAD master
+git bisect run test -f hello.txt
+```
+</section>
+
+<section>
+# Danager Zone
 </section>
 </section>
 

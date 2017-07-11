@@ -17,7 +17,7 @@ cat .git/config</code></pre>
 [branch "<span class="fragment fade-out" data-fragment-index="1">master</span><span class="fragment fade-up" data-fragment-index="1" style="color: #5e3c99">main</span>"]
   <span class="fragment fade-out" data-fragment-index="2">remote = <span class="fragment fade-out" data-fragment-index="0">origin</span><span class="fragment fade-up" data-fragment-index="0" style="color: #4dac26;">source</span>
   merge = refs/heads/master</span><span class="fragment fade-up" data-fragment-index="3" style="color: #0571b0">remote = source
-  merge = refs/heads/master</span></code></pre></span>
+  merge = refs/heads/master</span></span></code></pre>
 
 </section>
 
