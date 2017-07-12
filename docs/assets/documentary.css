@@ -21,7 +21,7 @@ img {
 .fragment.fade-out.visible {
   display: none !important;
 }
-
+/*
 .bad-rule:before {
   content: "\2716  ";
 }
@@ -36,4 +36,20 @@ img {
 
 .ok-rule {
   color: #1a9641;
+}
+*/
+.reveal .slides section .fragment.highlight-green.visible {
+  color: #1a9641 !important;
+}
+
+.reveal .slides section .fragment.highlight-green.visible:before {
+  content: "\2714  " !important;
+}
+
+.reveal .slides section .fragment.highlight-red.visible {
+  color: #d7191c !important;
+}
+
+.reveal .slides section .fragment.highlight-red.visible:before {
+  content: "\2716  " !important;
 }
