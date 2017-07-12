@@ -108,7 +108,7 @@ $ git show HEAD@{1}
 </section>
 
 <section>
-Выбираем родителей
+Выбираем **родителей**
 
 ```graphviz
 digraph revisions {
@@ -139,7 +139,7 @@ digraph revisions {
 </section>
 
 <section>
-Выбираем родителей
+Выбираем **родителей**
 
 ```graphviz
 digraph revisions {

@@ -3,12 +3,12 @@
 <section>
 **Resolve conflicts**
 
-```
+```shell
 git rebase master
 git pull --rebase
 ```
 
-```
+```shell
 git checkout --ours file.txt # feature
 git checkout --theirs file.txt # master
 ```
@@ -17,7 +17,7 @@ git checkout --theirs file.txt # master
 <section>
 **Detached**
 
-```
+```shell
 git checkout 26c0aa12792e6344f5
 ```
 
@@ -55,7 +55,7 @@ digraph {
 }
 ```
 
-```
+```shell
 git checkout 26c0aa12792e6344f5 -b feature
 ```
 </section>
