@@ -41,6 +41,7 @@ sources: $(MD_TARGETS)
 
 SLIDES = $(shell find \
 	$(SOURCE_DIR)/sandbox.md \
+	$(SOURCE_DIR)/git.md \
 	$(SOURCE_DIR)/init.md \
 	$(SOURCE_DIR)/staging.md \
 	$(SOURCE_DIR)/branch.md \
