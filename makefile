@@ -35,7 +35,10 @@ $(ASSETS_TARGETS): $(BUILDS_DIR)/%: $(ASSETS_DIR)/%
 	@mkdir -p $(@D)
 	cp -f $< $@
 
-sources: $(MD_TARGETS)
+sources: $(MD_TARGETS) $(TARGET_DIR)/.no_jekyll
+
+$(TARGET_DIR)/.no_jekyll:
+	touch $@
 
 #$(DOT_TARGETS)
 
