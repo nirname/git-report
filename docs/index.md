@@ -1,8 +1,4 @@
 <section>
-
-</section>
-
-<section>
 # GIT
 </section>
 
@@ -1088,7 +1084,7 @@ Date:   Tue Jun 20 15:15:26 2017 +0300
 ```shell
 $ git reflog
 b1713c7 HEAD@{0}: commit: Fixed env
-47194bc HEAD@{1}: clone: from git@github.com:uchiru/ansible-south-africa.git
+47194bc HEAD@{1}: clone: from git@github.com:nirname/documentary.git
 ```
 
 ```shell
