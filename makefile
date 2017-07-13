@@ -43,7 +43,6 @@ $(TARGET_DIR)/.no_jekyll:
 #$(DOT_TARGETS)
 
 SLIDES = $(shell find \
-	$(SOURCE_DIR)/sandbox.md \
 	$(SOURCE_DIR)/git.md \
 	$(SOURCE_DIR)/init.md \
 	$(SOURCE_DIR)/staging.md \
