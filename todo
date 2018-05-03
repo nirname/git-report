@@ -23,3 +23,50 @@ https://uchi.slack.com/archives/C5VNV4A9H/p1498477533698019?thread_ts=1498476397
 можно еще рассказать про лучшие практики гита: атомарные коммиты, понятные названия, description при необходимости и прочее. На самом деле есть куча статей на эту тему
 можно еще про git flow упомянуть :slightly_smiling_face: (edited)
 https://github.com/agis/git-style-guide
+
+
+---
+
+rerere
+
+octopus merge
+
+Поиск в git
+```
+git blame
+git grep
+```
+
+3 ways of ignoring
+
+rev-parse
+
+[git fetch](https://stackoverflow.com/a/8752253/4175647)
+
+[tags](https://git-scm.com/book/ru/v2/Git-%D0%B8%D0%B7%D0%BD%D1%83%D1%82%D1%80%D0%B8-%D0%A1%D1%81%D1%8B%D0%BB%D0%BA%D0%B8-%D0%B2-Git)
+
+best practices
+
+[GUIs](https://git-scm.com/downloads/guis)
+
+Восстановление данных
+```
+reset --hard
+stash clear
+fsck --full (10.7)
+```
+
+filter-branch
+
+split commit
+
+GIT изнутри
+.git - structure
+```
+objects
+trees
+```
+
+submodule
+
+git describe
